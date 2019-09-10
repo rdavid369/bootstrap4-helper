@@ -13,6 +13,20 @@ end
 #
 module Bootstrap4Helper
   # @description
+  # -
+  #
+  def accordion_helper(*args, &block)
+    Accordion.new(self, *args, &block)
+  end
+
+  # @description
+  # -
+  #
+  def accordion_group_helper(*args, &block)
+    AccordionGroup.new(self, *args, &block)
+  end
+
+  # @description
   # - Creates an Alert component.
   #
   # <code>

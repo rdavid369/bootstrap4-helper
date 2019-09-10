@@ -36,7 +36,7 @@
     <div class="col-sm mt-3 mb-3">
         <%= card_helper do |c| %>
             <%= c.header class: 'text-white bg-primary' do %>
-                This is the header...
+                <h3>This is the header...</h3>
             <% end %>
             <%= c.body do %>
                 <%= c.title { 'This is the title' } %>
@@ -275,6 +275,65 @@
                 <% end %>
                 <%= c.footer do %>
                     This is the footer...
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= accordion_helper do |a| %>
+            <%= a.header do %>
+                This is the Accordion Header
+            <% end %>
+            <%= a.body do %>
+                <%= a.text { "This is the Accordion Body" } %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= accordion_group_helper do |g| %>
+            <%= g.accordion do |a| %>
+                <%= a.header class: 'text-white bg-primary' do %>
+                    This is the Accordion Header One
+                <% end %>
+                <%= a.body do %>
+                    <%= a.text { "This is the Accordion Body" } %>
+                <% end %>
+            <% end %>
+
+            <%= g.accordion do |a| %>
+                <%= a.header class: 'text-white bg-secondary' do %>
+                    This is the Accordion Header Two
+                <% end %>
+                <%= a.body do %>
+                    <%= a.text { "This is the Accordion Body" } %>
+                <% end %>
+            <% end %>
+
+            <%= g.accordion do |a| %>
+                <%= a.header class: 'text-white bg-danger' do %>
+                    This is the Accordion Header Three
+                <% end %>
+                <%= a.body do %>
+                    <%= a.text { "This is the Accordion Body" } %>
+                <% end %>
+            <% end %>
+
+            <%= g.accordion do |a| %>
+                <%= a.header do %>
+                    This is the Accordion Header Four
+                <% end %>
+                <%= a.body do %>
+                    <%= a.text { "This is the Accordion Body" } %>
                 <% end %>
             <% end %>
         <% end %>

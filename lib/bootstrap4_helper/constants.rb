@@ -9,6 +9,8 @@ module Bootstrap4Helper
     COMPONENTS = %i[
       component
       alert
+      accordion
+      accordion_group
       badge
       card
       card_grouping
