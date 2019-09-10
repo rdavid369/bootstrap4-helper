@@ -14,8 +14,15 @@ Gem::Specification.new do |spec|
   spec.description = 'Library for rapidly building bootstrap 4 components'
   spec.license     = 'MIT'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  spec.files = Dir[
+    '{app,config,db,lib}/**/*',
+    'MIT-LICENSE',
+    'Rakefile',
+    'README.md'
+  ]
 
   spec.add_dependency 'rails', '~> 5.2.3'
+  spec.add_development_dependency 'bootstrap', '~> 4.3.1'
+  spec.add_development_dependency 'jquery-rails'
   spec.add_development_dependency 'sqlite3'
 end

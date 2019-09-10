@@ -1,0 +1,282 @@
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <p>This is the sample page for testing the library</p>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= alert_helper :primary do %>
+            This is the standard alert....
+        <% end %>
+
+        <%= alert_helper :danger, dismissible: true do %>
+            This is the standard alert....
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= badge_helper(:primary) { 'Primary' } %>
+        <%= badge_helper { 'Secondary' } %>
+        <%= badge_helper :info, class: 'badge-pill' do %>
+            I am a pill!
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_helper do |c| %>
+            <%= c.header class: 'text-white bg-primary' do %>
+                This is the header...
+            <% end %>
+            <%= c.body do %>
+                <%= c.title { 'This is the title' } %>
+                <%= c.text { 'This card body' } %>
+                <ul>
+                    <% [1, 2, 3].each do |x|  %>
+                        <li>Item: <%= x %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+            <%= c.footer do %>
+                This is the footer...
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_helper do |c| %>
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <%= image_tag 'placeholder.svg', class: 'card-img' %>
+                </div>
+                <div class="col-md-8">
+                    <%= c.body do %>
+                        <%= c.title { "Card title" } %>
+                        <%= c.text { "This is a wider card with supporting text below as a natural lead-in to additional content." } %>
+                        <%= c.text do %>
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        <% end %>
+                   <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_deck_helper do |group| %>
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title one' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title two' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_group_helper do |group| %>
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title one' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title two' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_column_helper do |group| %>
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title one' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title two' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+
+            <%= group.card do |c| %>
+                <%= c.body do %>
+                    <%= c.title { 'This is the title three' } %>
+                    <%= c.text { 'This card body' } %>
+                    <ul>
+                        <% [1, 2, 3].each do |x|  %>
+                            <li>Item: <%= x %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                <%= c.footer do %>
+                    This is the footer...
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
