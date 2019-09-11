@@ -79,10 +79,7 @@ module Bootstrap4Helper
     # @return [String]
     #
     def container_class
-      string = 'alert '
-      string += @context == 'default' ? 'alert-info' : "alert-#{@context}"
-      string += " #{@class}"
-      string
+      "alert alert-#{@context} #{@class}"
     end
   end
 end

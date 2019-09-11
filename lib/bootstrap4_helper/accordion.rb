@@ -16,6 +16,8 @@ module Bootstrap4Helper
     # -
     #
     # @param [ActionView] template
+    # @param [NilClass|String|Symbol|Hash] context_or_options
+    # @param [Hash]
     #
     def initialize(template, context_or_options = nil, opts = {}, &block)
       super(template)
@@ -32,7 +34,11 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Builds a header component for the accordion, which is actually the header
+    # of a Card.
+    #
+    # @param [Mixed] args
+    # @return [String]
     #
     def header(*args, &block)
       @card.header(*args) do
@@ -47,7 +53,15 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Builds the body component for the accordion, which is actually the body
+    # of a Card.
+    #
+    # @note
+    # - The `@parent` gets used to set the parent element for the accordion. This
+    # gets used primarily in the `AccordionGroup`.
+    #
+    # @param [Mixed] args
+    # @return [String]
     #
     def body(*args, &block)
       data = { parent: "##{@parent}" } if @parent.present?
@@ -58,7 +72,12 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Because Accordions are basically `Cards` with a wrapper, we might as
+    # well catch common `Card` methods and send them to the card object.  No
+    # point in creating similar methods for `Accordions`.
+    #
+    # @param [Symbol|String] method
+    # @param [Mixed] args
     #
     def method_missing(method, *args, &block)
       if CARD_METHODS.include?(method)
@@ -66,6 +85,13 @@ module Bootstrap4Helper
       else
         super
       end
+    end
+
+    # @description
+    # - 
+    #
+    def respond_to_missing?(method, include_private = false)
+      CARD_METHODS.include?(method) || super
     end
 
     # @description
