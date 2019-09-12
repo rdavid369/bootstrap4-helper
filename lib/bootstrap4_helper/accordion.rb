@@ -88,7 +88,7 @@ module Bootstrap4Helper
     end
 
     # @description
-    # - 
+    # -
     #
     def respond_to_missing?(method, include_private = false)
       CARD_METHODS.include?(method) || super

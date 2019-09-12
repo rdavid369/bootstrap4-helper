@@ -17,8 +17,13 @@ module Bootstrap4Helper
       card_group
       card_deck
       card_column
+      dropdown
+      dropdown/menu
       modal
+      nav
       spinner
+      tab
+      tab/content
     ].freeze
   end
 end

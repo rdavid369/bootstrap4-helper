@@ -27,7 +27,14 @@ module Bootstrap4Helper
     # -
     #
     def to_s
-      content_tag :span, class: "spinner-#{@type} #{@class}", role: 'status', aria: { hidden: true } do
+      content_tag(
+        :span,
+        id:    @id,
+        class: "spinner-#{@type} #{@class}",
+        role:  'status',
+        aria:  { hidden: true },
+        data:  @data
+      ) do
         content_tag :span, 'Loading', class: 'sr-only'
       end
     end

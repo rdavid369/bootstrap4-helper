@@ -126,8 +126,29 @@ module Bootstrap4Helper
   # @description
   # -
   #
+  def dropdown_helper(*args, &block)
+    Dropdown.new(self, *args, &block)
+  end
+
+  # @description
+  # -
+  #
   def modal_helper(*args, &block)
     Modal.new(self, *args, &block)
+  end
+
+  # @description
+  # -
+  #
+  def nav_helper(*args, &block)
+    Nav.new(self, *args, &block)
+  end
+
+  # @description
+  # -
+  #
+  def tab_helper(*args, &block)
+    Tab.new(self, *args, &block)
   end
 
   # @description
