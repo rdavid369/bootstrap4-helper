@@ -58,36 +58,14 @@ module Bootstrap4Helper
       # -
       #
       def text(text = nil, opts = {}, &block)
-        id    = opts.fetch(:id,    nil)
-        klass = opts.fetch(:class, '')
-        data  = opts.fetch(:data,  {})
-
-        content_tag(
-          :span,
-          id:     id,
-          class: "dropdown-item-text #{klass}",
-          data:  data
-        ) do
-          text ? text : block.call
-        end
+        build_sub_component :span, text, 'item-text', opts, &block
       end
 
       # @description
       # -
       #
       def header(text, opts = {}, &block)
-        id    = opts.fetch(:id,    nil)
-        klass = opts.fetch(:class, '')
-        data  = opts.fetch(:data,  {})
-
-        content_tag(
-          :h6,
-          id:     id,
-          class: "dropdown-header #{klass}",
-          data:  data
-        ) do
-          text ? text : block.call
-        end
+        build_sub_component :h6, text, 'header', opts, &block
       end
 
       # @description
@@ -103,6 +81,26 @@ module Bootstrap4Helper
       def to_s
         content_tag :div, id: @id, class: "dropdown-menu #{@class}", data: @data do
           @content.call(self)
+        end
+      end
+
+      private
+
+      # @description
+      # -
+      #
+      def build_sub_component(tag, text, type, opts, &block)
+        id    = opts.fetch(:id,    nil)
+        klass = opts.fetch(:class, '')
+        data  = opts.fetch(:data,  {})
+
+        content_tag(
+          tag,
+          id:     id,
+          class: "dropdown-#{type} #{klass}",
+          data:  data
+        ) do
+          text ? text : block ? block.call : ''
         end
       end
     end
