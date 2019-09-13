@@ -5,54 +5,27 @@ module Bootstrap4Helper
   # @description
   # - Used to build Bootstrap Card components.  Cards are wildly used through Bootstrap 4.
   #
-  #
-  # @note
-  # - Cards have the following components:
-  #
-  # - card
-  #  -- card-header
-  #   -- nav-tabs
-  #   -- card-header-tabs
-  #   -- nav-pills
-  #   -- card-header-pills
-  #
-  #  -- card-img-top
-  #  -- card-img-bottom
-  #  -- card-header
-  #  -- list-group
-  #  -- card-footer
-  #
-  #  -- card-body
-  #   -- card-title
-  #   -- card-subtitle
-  #   -- card-text
-  #   -- card-link
-  #
-  #
   class Card < Component
     # @description
     # - Used to initialize a new Card component.
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
     # @param [Hash]  opts
     # @return [Card]
     #
-    def initialize(template, context_or_options = nil, opts = {}, &block)
+    def initialize(template, opts = {}, &block)
       super(template)
 
-      @context, args = parse_arguments(context_or_options, opts)
-
-      @id      = args.fetch(:id,    '')
-      @class   = args.fetch(:class, '')
-      @data    = args.fetch(:data,  nil)
+      @id      = opts.fetch(:id,    '')
+      @class   = opts.fetch(:class, '')
+      @data    = opts.fetch(:data,  nil)
       @content = block || proc { '' }
     end
 
     # @description
     # - Builds the Header component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def header(args = {}, &block)
@@ -62,7 +35,7 @@ module Bootstrap4Helper
     # @description
     # - Builds the Body component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def body(args = {}, &block)
@@ -72,7 +45,7 @@ module Bootstrap4Helper
     # @description
     # - Builds the Footer component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def footer(args = {}, &block)
@@ -82,7 +55,7 @@ module Bootstrap4Helper
     # @description
     # - Builds a Title component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def title(args = {}, &block)
@@ -92,7 +65,7 @@ module Bootstrap4Helper
     # @description
     # - Builds a Text component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def text(args = {}, &block)
@@ -102,7 +75,7 @@ module Bootstrap4Helper
     # @description
     # - Builds a Img Overlay component.
     #
-    # @param [Mixed] args
+    # @param [Hash] args
     # @return [String]
     #
     def image_overlay(args = {}, &block)

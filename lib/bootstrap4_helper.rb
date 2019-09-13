@@ -32,8 +32,8 @@ module Bootstrap4Helper
   # @param [Mixed] args
   # @return [Accordion]
   #
-  def accordion_helper(*args, &block)
-    Accordion.new(self, *args, &block)
+  def accordion_helper(opts = {}, &block)
+    Accordion.new(self, opts, &block)
   end
 
   # @description
@@ -86,7 +86,17 @@ module Bootstrap4Helper
   end
 
   # @description
-  # -
+  # - Creates a badge component.  Bades have a context variable.  Providing nothing
+  # will give you the `secondary` context.
+  #
+  # <code>
+  #  <li>
+  #    Messages: <%= badge_helper(:primary) { @messages.count } %>
+  #  </li>
+  #  <li>
+  #    Notifications: <%= badge_healper { @notifications.count } %>
+  #  </li>
+  # </code>
   #
   # @params [Symbol|String|Hash|NilClass] *args
   # @return [String]
@@ -96,63 +106,416 @@ module Bootstrap4Helper
   end
 
   # @description
-  # -
+  # - Creates a Card component.
   #
-  def card_helper(*args, &block)
-    Card.new(self, *args, &block)
+  #
+  # <code>
+  #
+  # - Regular
+  #
+  #   <%= card_helper do |c| %>
+  #     <%= c.header class: 'text-white bg-primary' do %>
+  #         <h4>This is the header...</h4>
+  #     <% end %>
+  #     <%= c.body do %>
+  #         <%= c.title { 'This is the title' } %>
+  #         <%= c.text { 'This card body' } %>
+  #         <ul>
+  #             <% [1, 2, 3].each do |x|  %>
+  #                 <li>Item: <%= x %></li>
+  #             <% end %>
+  #         </ul>
+  #     <% end %>
+  #     <%= c.footer do %>
+  #         This is the footer...
+  #     <% end %>
+  #   <% end %>
+  #
+  # - Horizontal
+  #
+  #  <div class="row">
+  #    <div class="col-sm mt-3 mb-3">
+  #        <%= card_helper do |c| %>
+  #            <div class="row no-gutters">
+  #                <div class="col-md-4">
+  #                    <%= image_tag 'placeholder.svg', class: 'card-img' %>
+  #                </div>
+  #                <div class="col-md-8">
+  #                    <%= c.body do %>
+  #                        <%= c.title { "Card title" } %>
+  #                        <%= c.text { "This is a wider card with supporting text below as a natural lead-in to additional content." } %>
+  #                        <%= c.text do %>
+  #                            <small class="text-muted">Last updated 3 mins ago</small>
+  #                        <% end %>
+  #                   <% end %>
+  #                </div>
+  #            </div>
+  #        <% end %>
+  #    </div>
+  #  </div>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def card_helper(opts = {}, &block)
+    Card.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Builds a card group.
   #
-  def card_group_helper(*args, &block)
-    CardGroup.new(self, *args, &block)
+  # <code>
+  #  <%= card_group_helper do |group| %>
+  #    <%= group.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title one' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= group.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title two' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= group.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title three' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def card_group_helper(opts = {}, &block)
+    CardGroup.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Builds a card deck.
   #
-  def card_deck_helper(*args, &block)
-    CardDeck.new(self, *args, &block)
+  # <code>
+  #  <%= card_deck_helper do |deck| %>
+  #    <%= deck.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title one' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= deck.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title two' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= deck.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title three' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def card_deck_helper(opts = {}, &block)
+    CardDeck.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Builds a card column.
   #
-  def card_column_helper(*args, &block)
-    CardColumn.new(self, *args, &block)
+  # <code>
+  #  <%= card_column_helper do |column| %>
+  #    <%= column.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title one' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3, 4, 5, 6, 7].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= column.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title two' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= column.card do |c| %>
+  #        <%= c.body do %>
+  #            <%= c.title { 'This is the title three' } %>
+  #            <%= c.text { 'This card body' } %>
+  #            <ul>
+  #                <% [1, 2, 3].each do |x|  %>
+  #                    <li>Item: <%= x %></li>
+  #                <% end %>
+  #            </ul>
+  #        <% end %>
+  #        <%= c.footer do %>
+  #            This is the footer...
+  #        <% end %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def card_column_helper(opts = {}, &block)
+    CardColumn.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Generates a Dropdown component.  Default type `:dropdown`.  For inline buttons, use
+  # `:group`.
+  #
+  # <code>
+  #  <%= dropdown_helper do |dropdown| %>
+  #    <%= dropdown.button(:primary) { "Action" } %>
+  #    <%= dropdown.menu do |menu| %>
+  #        <%= menu.link 'Edit', '#' %>
+  #        <%= menu.link 'Delete', '#' %>
+  #        <%= menu.text 'Static text' %>
+  #    <% end %>
+  #  <% end %>
+  #
+  #  <%= dropdown_helper :group, class: 'dropright' do |dropdown| %>
+  #    <button type="button" class="btn btn-danger">Action 2</button>
+  #    <%= dropdown.button(:danger, split: true) %>
+  #    <%= dropdown.menu do |menu| %>
+  #        <%= menu.header "Crud operations" %>
+  #        <%= menu.divider %>
+  #        <%= menu.link 'Edit', '#' %>
+  #        <%= menu.link 'Delete', '#' %>
+  #    <% end %>
+  #  <% end %>
+  #
+  #  <%= dropdown_helper do |dropdown| %>
+  #    <%= dropdown.button :primary do %>
+  #        Login
+  #    <% end %>
+  #    <%= dropdown.menu do |menu| %>
+  #        <form class="px-4 py-3">
+  #            <div class="form-group">
+  #                <label for="exampleDropdownFormEmail1">Email address</label>
+  #                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+  #            </div>
+  #            <div class="form-group">
+  #                <label for="exampleDropdownFormPassword1">Password</label>
+  #                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+  #            </div>
+  #            <div class="form-group">
+  #                <div class="form-check">
+  #                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+  #                    <label class="form-check-label" for="dropdownCheck">
+  #                        Remember me
+  #                    </label>
+  #                </div>
+  #            </div>
+  #            <button type="submit" class="btn btn-primary">Sign in</button>
+  #        </form>
+  #        <%= menu.divider %>
+  #        <%= menu.link "New around here? Sign up", "#" %>
+  #        <%= menu.link "Forgot password", "#" %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Mixed] args
+  # @return [String]
   #
   def dropdown_helper(*args, &block)
     Dropdown.new(self, *args, &block)
   end
 
   # @description
-  # -
+  # - Generates Modal windows.
   #
-  def modal_helper(*args, &block)
-    Modal.new(self, *args, &block)
+  # <code>
+  #  <%= modal_helper id: 'exampleModal' do |m| %>
+  #    <%= m.header do %>
+  #        <%= m.title { 'Example Modal' } %>
+  #        <%= m.close_button %>
+  #    <% end %>
+  #    <%= m.body do %>
+  #        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi tempora, eius iste sit nobis
+  #        earum in harum optio dolore explicabo. Eveniet reprehenderit harum itaque ad fuga beatae, quasi
+  #        sequi! Laborum ea porro nihil ipsam repudiandae vel harum voluptates minima corrupti unde quas,
+  #        dolore possimus doloribus voluptatem sint fuga dolores odio dignissimos at molestias earum.
+  #    <% end %>
+  #    <%= m.footer do %>
+  #        <%= m.close_button class: 'btn btn-secondary' do %>
+  #            Close
+  #        <% end %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def modal_helper(opts = {}, &block)
+    Modal.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Generates Nav components.
   #
-  def nav_helper(*args, &block)
-    Nav.new(self, *args, &block)
+  # <code>
+  #  <%= nav_helper do |nav| %>
+  #    <%= nav.link "Item 1", "https://www.google.com" %>
+  #    <%= nav.link "Item 2", "#" %>
+  #    <%= nav.link "Item 3", "#" %>
+  #    <%= nav.dropdown :more do |menu| %>
+  #        <%= menu.link 'People', '#' %>
+  #        <%= menu.link 'Records', '#' %>
+  #    <% end %>
+  #
+  #    <%= nav.dropdown "More 2" do |menu| %>
+  #        <%= menu.link 'People', '#' %>
+  #        <%= menu.link 'Records', '#' %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
+  #
+  # @param [Hash] opts
+  # @return [String]
+  #
+  def nav_helper(opts = {}, &block)
+    Nav.new(self, opts, &block)
   end
 
   # @description
-  # -
+  # - Generates a Tab component.
+  #
+  # <code>
+  #  <%= tab_helper do |tab| %>
+  #    <%= tab.nav do |nav| %>
+  #        <%= nav.item :item1 do %>
+  #            Item 1
+  #        <% end %>
+  #        <%= nav.item(:item2, class: 'active') { "Item 2" } %>
+  #        <%= nav.item(:item3) { "Item 3" } %>
+  #        <%= nav.item :item4 %>
+  #        <%= nav.dropdown 'More' do |dropdown| %>
+  #            <%= dropdown.item :item5 %>
+  #            <%= dropdown.item(:item6) { 'Item 6' } %>
+  #        <% end %>
+  #    <% end %>
+  #
+  #    <%= tab.content do |content| %>
+  #        <%= content.pane :item1, class: 'mt-3' do %>
+  #            Content 1
+  #        <% end %>
+  #
+  #        <%= content.pane :item2, class: 'active mt-3' do %>
+  #            Content 2
+  #        <% end %>
+  #
+  #        <%= content.pane :item3, class: 'mt-3' do %>
+  #            Content 3
+  #        <% end %>
+  #
+  #        <%= content.pane :item4, class: 'mt-3' do %>
+  #            Content 4
+  #        <% end %>
+  #
+  #        <%= content.pane :item5, class: 'mt-3' do %>
+  #            Content 5
+  #        <% end %>
+  #
+  #        <%= content.pane :item6, class: 'mt-3' do %>
+  #            Content 6
+  #        <% end %>
+  #    <% end %>
+  #  <% end %>
+  # </code>
   #
   def tab_helper(*args, &block)
     Tab.new(self, *args, &block)
   end
 
   # @description
-  # -
+  # - Generates spinner annimations.
+  #
+  # <code>
+  #  <%= spinner_helper class: 'text-warning' %>
+  #  <%= spinner_helper type: :grow, class: 'text-danger', id: 'loadingRecords' %>
+  # </code>
   #
   def spinner_helper(*args, &block)
     Spinner.new(self, *args, &block)

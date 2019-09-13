@@ -16,18 +16,15 @@ module Bootstrap4Helper
     # -
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
-    # @param [Hash]
+    # @param [Hash] opts
     #
-    def initialize(template, context_or_options = nil, opts = {}, &block)
+    def initialize(template, opts = {}, &block)
       super(template)
 
-      @context, args = parse_arguments(context_or_options, opts)
-
-      @id      = args.fetch(:id,      uuid)
-      @class   = args.fetch(:class,   '')
-      @data    = args.fetch(:data,    {})
-      @parent  = args.fetch(:parent,  nil)
+      @id      = opts.fetch(:id,      uuid)
+      @class   = opts.fetch(:class,   '')
+      @data    = opts.fetch(:data,    {})
+      @parent  = opts.fetch(:parent,  nil)
       @target  = @data.fetch(:target, uuid)
       @content = block || proc { '' }
       @card    = Card.new(@template)
@@ -37,15 +34,15 @@ module Bootstrap4Helper
     # - Builds a header component for the accordion, which is actually the header
     # of a Card.
     #
-    # @param [Mixed] args
+    # @param [Hash] opts
     # @return [String]
     #
-    def header(*args, &block)
-      @card.header(*args) do
+    def header(opts = {}, &block)
+      @card.header(opts) do
         content_tag :h5 do
           content_tag(
             :a,
-            data:  { toggle: 'collapse', target: "##{@target}" },
+            data: { toggle: 'collapse', target: "##{@target}" },
             &block
           )
         end
@@ -60,14 +57,14 @@ module Bootstrap4Helper
     # - The `@parent` gets used to set the parent element for the accordion. This
     # gets used primarily in the `AccordionGroup`.
     #
-    # @param [Mixed] args
+    # @param [Hash] opts
     # @return [String]
     #
-    def body(*args, &block)
+    def body(opts = {}, &block)
       data = { parent: "##{@parent}" } if @parent.present?
 
       content_tag :div, id: @target, class: 'collapse', data: data do
-        @card.body(*args, &block)
+        @card.body(opts, &block)
       end
     end
 

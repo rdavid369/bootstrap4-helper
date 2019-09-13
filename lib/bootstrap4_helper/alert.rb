@@ -36,10 +36,10 @@ module Bootstrap4Helper
       super(template)
       @context, args = parse_arguments(context_or_options, opts)
 
-      @id = args.fetch(:id, nil)
-      @class = args.fetch(:class, '')
+      @id          = args.fetch(:id,          nil)
+      @class       = args.fetch(:class,       '')
       @dismissible = args.fetch(:dismissible, false)
-      @content = block || proc { '' }
+      @content     = block || proc { '' }
     end
 
     # @description
@@ -56,18 +56,12 @@ module Bootstrap4Helper
     # @description
     # - Used to render out the Alert component.
     #
-    # @note
-    # - concat needs to be used to add the content of the button to the output
-    # buffer.  For some reason, if though the block returns a String, trying to
-    # add that string to the dismiss button string, returns with the dismiss
-    # button missing.  Was forced to caoncat the button to the current output
-    # buffer in order to get it to persist after the block call.
-    #
     # @return [String]
     #
     def to_s
       content_tag :div, id: @id, class: container_class do
-        concat(@dismissible ? close_button : '') + @content.call
+        concat(@dismissible ? close_button : '')
+        @content.call(self)
       end
     end
 

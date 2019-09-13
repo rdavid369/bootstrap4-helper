@@ -2,16 +2,15 @@
 #
 #
 module Bootstrap4Helper
-  #
-  #
+  # @description
+  # - a simple CSS spinner component.
   #
   class Spinner < Component
     # @description
     # -
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
-    # @param [Hash]
+    # @param [Hash] opts
     #
     def initialize(template, opts = {}, &block)
       super(template)

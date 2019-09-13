@@ -37,42 +37,52 @@ module Bootstrap4Helper
       # - Use this method when you are using the item in the menu as trigger for tab
       # content.
       #
-      def item(target, opts = {}, &block)
+      # @param [Symbol|String] target
+      # @param [Hash] opts
+      #
+      def item(target, opts = {})
         id    = opts.fetch(:id,    nil)
         klass = opts.fetch(:class, '')
-        data  = opts.fetch(:data,  {})
+        data  = opts.fetch(:data,  {}).merge(toggle: 'tab')
         aria  = opts.fetch(:aria,  {})
 
         content_tag(
           :a,
+          id:    id,
           class: "dropdown-item #{klass}",
           href:  "##{target}",
           aria:  aria,
-          data:  { toggle: 'tab' }
+          data:  data
         ) do
-          block ? block.call : target.to_s.titleize
+          block_given? ? yield : target.to_s.titleize
         end
       end
 
       # @description
-      # -
+      # - Builds a Text component
       #
-      def text(text = nil, opts = {}, &block)
+      # @param [Symbol|String] text
+      # @param [Hash] opts
+      #
+      def text(text, opts = {}, &block)
         build_sub_component :span, text, 'item-text', opts, &block
       end
 
       # @description
-      # -
+      # - Builds a Header component
+      #
+      # @param [Symbol|String] text
+      # @param [Hash] opts
       #
       def header(text, opts = {}, &block)
         build_sub_component :h6, text, 'header', opts, &block
       end
 
       # @description
-      # -
+      # - Builds a divider element
       #
       def divider
-        content_tag :div, "", class: "dropdown-divider"
+        content_tag :div, '', class: 'dropdown-divider'
       end
 
       # @description
@@ -87,20 +97,25 @@ module Bootstrap4Helper
       private
 
       # @description
-      # -
+      # - Used to build specific components.
       #
-      def build_sub_component(tag, text, type, opts, &block)
+      # @param [Symbol] tag
+      # @param [Symbol|String] text
+      # @param [Symbol|String] type
+      # @param [Hash] opts
+      #
+      def build_sub_component(tag, text, type, opts)
         id    = opts.fetch(:id,    nil)
         klass = opts.fetch(:class, '')
         data  = opts.fetch(:data,  {})
 
         content_tag(
           tag,
-          id:     id,
+          id:    id,
           class: "dropdown-#{type} #{klass}",
           data:  data
         ) do
-          text ? text : block ? block.call : ''
+          block_given? ? yield : text || ''
         end
       end
     end

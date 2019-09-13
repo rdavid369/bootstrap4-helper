@@ -10,26 +10,26 @@ module Bootstrap4Helper
     # - Used to initialize a new Card Group.
     #
     # @param [Class] template
-    # @param [NilClass|String|Symbol|Hash] - Bootstrap class context, or options hash.
     # @param [Hash]  opts
     # @return [Card]
     #
-    def initialize(template, context_or_options = nil, opts = {}, &block)
+    def initialize(template, opts = {}, &block)
       super(template)
 
-      @context, args = parse_arguments(context_or_options, opts)
-
-      @id      = args.fetch(:id,    '')
-      @class   = args.fetch(:class, '')
-      @data    = args.fetch(:data,  nil)
+      @id      = opts.fetch(:id,    '')
+      @class   = opts.fetch(:class, '')
+      @data    = opts.fetch(:data,  nil)
       @content = block || proc { '' }
     end
 
     # @description
-    # -
+    # - Builds a `Card` for the grouping class.
     #
-    def card(context_or_options = nil, opts = {}, &block)
-      Card.new(@template, context_or_options, opts, &block)
+    # @param [Hash] opts
+    # @return [Card]
+    #
+    def card(opts = {}, &block)
+      Card.new(@template, opts, &block)
     end
   end
 end

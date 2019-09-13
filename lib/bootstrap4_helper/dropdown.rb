@@ -10,6 +10,7 @@ module Bootstrap4Helper
     # -
     #
     # @param [ActionView] template
+    # @param [Symbol|String] type
     # @param [Hash] opts
     # @param [Hash]
     #
@@ -24,7 +25,13 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Used to generate a button for the dropdown.  The buttons default as just
+    # a button that opens the coresponding dropdown menu.  The `split: true` option
+    # make the button just the arrow indicator that open the menu.
+    #
+    # @param [Symbol] context
+    # @param [Hash] opts
+    # @return [String]
     #
     def button(context = :primary, opts = {})
       split = opts.fetch(:split, false)
@@ -46,7 +53,10 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Used to create a new `Dropdown::Menu`
+    #
+    # @param [Hash] opts
+    # @return [Dropdown::Menu]
     #
     def menu(opts = {}, &block)
       Menu.new(@template, opts, &block)
@@ -64,7 +74,9 @@ module Bootstrap4Helper
     private
 
     # @description
-    # -
+    # - Returns the container class for the dropdown component.
+    #
+    # @return [String]
     #
     def container_class
       case @type

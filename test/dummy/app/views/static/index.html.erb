@@ -482,10 +482,18 @@
 <div class="row">
     <div class="col-sm mt-3 mb-3">
         <%= nav_helper do |nav| %>
-            <%= nav.item(:item1) { "Item 1" } %>
-            <%= nav.item(:item2) { "Item 2" } %>
-            <%= nav.item(:item3) { "Item 3" } %>
-            <%= nav.item :item4 %>
+            <%= nav.link "Item 1", "https://www.google.com" %>
+            <%= nav.link "Item 2", "#" %>
+            <%= nav.link "Item 3", "#" %>
+            <%= nav.dropdown :more do |menu| %>
+                <%= menu.link 'People', '#' %>
+                <%= menu.link 'Records', '#' %>
+            <% end %>
+
+            <%= nav.dropdown "More 2" do |menu| %>
+                <%= menu.link 'People', '#' %>
+                <%= menu.link 'Records', '#' %>
+            <% end %>
         <% end %>
     </div>
 </div>
@@ -495,7 +503,7 @@
 <div class="row">
     <div class="col-sm mt-3 mb-3">
 
-        <%= dropdown_helper :group do |dropdown| %>
+        <%= dropdown_helper do |dropdown| %>
             <%= dropdown.button(:primary) { "Action" } %>
             <%= dropdown.menu do |menu| %>
                 <%= menu.link 'Edit', '#' %>

@@ -10,17 +10,15 @@ module Bootstrap4Helper
     # -
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
+    # @param [NilClass|String|Symbol|Hash] opts
     # @param [Hash]
     #
-    def initialize(template, context_or_options = nil, opts = {}, &block)
+    def initialize(template, opts = {}, &block)
       super(template)
 
-      @context, args = parse_arguments(context_or_options, opts)
-
-      @id      = args.fetch(:id,      uuid)
-      @class   = args.fetch(:class,   '')
-      @data    = args.fetch(:data,    {})
+      @id      = opts.fetch(:id,      uuid)
+      @class   = opts.fetch(:class,   '')
+      @data    = opts.fetch(:data,    {})
       @content = block || proc { '' }
     end
 

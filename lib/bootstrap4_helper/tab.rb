@@ -10,7 +10,7 @@ module Bootstrap4Helper
     # -
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
+    # @param [Hash] opts
     # @param [Hash]
     #
     def initialize(template, opts = {}, &block)
@@ -24,7 +24,10 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Builds a custom Nav component for the tabs.
+    #
+    # @param [Hash] opts
+    # @return [Nav]
     #
     def nav(opts = {}, &block)
       opts[:class] = (opts[:class] || '') << " nav-#{@type}"
@@ -39,7 +42,10 @@ module Bootstrap4Helper
     end
 
     # @description
-    # -
+    # - Builds the Content object for the Tab.
+    #
+    # @param [Hash] opts
+    # @return [Tab::Content]
     #
     def content(opts = {}, &block)
       Content.new(@template, opts, &block)
