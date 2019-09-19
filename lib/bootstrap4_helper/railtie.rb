@@ -3,8 +3,10 @@ module Bootstrap4Helper
   #
   #
   class Railtie < ::Rails::Railtie
-    initializer 'bootsrap4_helper' do
-      ActiveSupport.on_load(:action_view) { include Bootstrap4Helper }
+    config.after_initialize do
+      ActiveSupport.on_load(:action_view) do
+        include Bootstrap4Helper if Bootstrap4Helper.config.autoload_in_views?
+      end
     end
   end
 end

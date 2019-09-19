@@ -17,6 +17,7 @@ module Bootstrap4Helper
       card_group
       card_deck
       card_column
+      configuration
       dropdown
       dropdown/menu
       modal

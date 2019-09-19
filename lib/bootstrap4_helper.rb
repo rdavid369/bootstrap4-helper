@@ -12,6 +12,21 @@ end
 # <div>'s.
 #
 module Bootstrap4Helper
+  @config = Configuration.new
+
+  class << self
+    # @description
+    # - Simple interface for exposing the configuration object.
+    #
+    # @return [Bootstrap4Helper::Configuration]
+    #
+    def config
+      yield @config if block_given?
+
+      @config
+    end
+  end
+
   # @description
   # - Creates a single Accordion element.  The header component
   # already provides the DOM element to link the Collapse area.
