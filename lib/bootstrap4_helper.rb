@@ -12,7 +12,12 @@ end
 # <div>'s.
 #
 module Bootstrap4Helper
-  @config = Configuration.new
+  # @description
+  # - Naming convention used as to not pollute views where the module is
+  # included.  @config is a common instance variable name.  We don't want
+  # to risk overriding another developers variable.
+  #
+  @_bs4h_config = Configuration.new
 
   class << self
     # @description
@@ -21,9 +26,9 @@ module Bootstrap4Helper
     # @return [Bootstrap4Helper::Configuration]
     #
     def config
-      yield @config if block_given?
+      yield @_bs4h_config if block_given?
 
-      @config
+      @_bs4h_config
     end
   end
 
