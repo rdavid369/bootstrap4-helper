@@ -6,11 +6,15 @@ module Bootstrap4Helper
   #
   #
   class Configuration
-    SETTINGS = %i[
-      autoload_in_views
-    ].freeze
+    DEFAULT_SETTINGS = {
+      autoload_in_views: true,
+      card_title:        :h5,
+      card_text:         :p,
+      accordion_header:  :h5,
+      badge:             :span
+    }.freeze
 
-    attr_accessor(*SETTINGS)
+    attr_accessor(*DEFAULT_SETTINGS.keys)
 
     # @description
     # -
@@ -19,7 +23,7 @@ module Bootstrap4Helper
     # @return [ClassName]
     #
     def initialize(_args = {})
-      @autoload_in_views = true
+      DEFAULT_SETTINGS.each { |key, value| instance_variable_set("@#{key}", value) }
     end
 
     # @description

@@ -26,7 +26,7 @@ module Bootstrap4Helper
     # -
     #
     def to_s
-      content_tag(:span, id: @id, class: container_class) { @content.call(self) }
+      content_tag(config(:badge, :span), id: @id, class: container_class) { @content.call(self) }
     end
 
     private

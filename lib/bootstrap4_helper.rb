@@ -6,32 +6,14 @@ Bootstrap4Helper::Constants::COMPONENTS.each do |component|
   require "bootstrap4_helper/#{component}"
 end
 
+require 'bootstrap4_helper/initialize'
+
 # @todo
 # - We need a configuration system so people can specify what DOM elements to
 # use when building components.  Like, so we want <h1> for Card Headers or just
 # <div>'s.
 #
 module Bootstrap4Helper
-  # @description
-  # - Naming convention used as to not pollute views where the module is
-  # included.  @config is a common instance variable name.  We don't want
-  # to risk overriding another developers variable.
-  #
-  @_bs4h_config = Configuration.new
-
-  class << self
-    # @description
-    # - Simple interface for exposing the configuration object.
-    #
-    # @return [Bootstrap4Helper::Configuration]
-    #
-    def config
-      yield @_bs4h_config if block_given?
-
-      @_bs4h_config
-    end
-  end
-
   # @description
   # - Creates a single Accordion element.  The header component
   # already provides the DOM element to link the Collapse area.

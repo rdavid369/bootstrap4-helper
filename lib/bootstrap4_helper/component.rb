@@ -96,5 +96,15 @@ module Bootstrap4Helper
     def uuid
       (0...10).map { rand(65..90).chr }.join
     end
+
+    # @description
+    # - Used to get config settings inside of components quicker.
+    #
+    # @param [Symbol] setting
+    # @return [Mixed]
+    #
+    def config(setting, fallback)
+      Bootstrap4Helper.config.send(setting) || fallback
+    end
   end
 end

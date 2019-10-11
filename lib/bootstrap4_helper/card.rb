@@ -59,7 +59,7 @@ module Bootstrap4Helper
     # @return [String]
     #
     def title(args = {}, &block)
-      build_sub_component :h5, :title, args, &block
+      build_sub_component config(:card_title, :h5), :title, args, &block
     end
 
     # @description
@@ -69,7 +69,7 @@ module Bootstrap4Helper
     # @return [String]
     #
     def text(args = {}, &block)
-      build_sub_component :p, :text, args, &block
+      build_sub_component config(:card_text, :p), :text, args, &block
     end
 
     # @description

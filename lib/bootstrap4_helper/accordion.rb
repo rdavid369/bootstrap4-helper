@@ -39,7 +39,7 @@ module Bootstrap4Helper
     #
     def header(opts = {}, &block)
       @card.header(opts) do
-        content_tag :h5 do
+        content_tag(config(:accordion_header, :h5)) do
           content_tag(
             :a,
             data: { toggle: 'collapse', target: "##{@target}" },
