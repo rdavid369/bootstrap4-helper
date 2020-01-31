@@ -1,5 +1,5 @@
 module Bootstrap4Helper
-  # @description
+  # Simple Railtie to hook out module into ActionView.
   #
   #
   class Railtie < ::Rails::Railtie

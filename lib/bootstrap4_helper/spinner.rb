@@ -1,16 +1,18 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - a simple CSS spinner component.
+  # Builds a simple CSS spinner component.
+  #
   #
   class Spinner < Component
-    # @description
-    # -
+    # Class constructor
+    #
+    # @note The different support types are: `:border` and `:grow`
     #
     # @param [ActionView] template
     # @param [Hash] opts
+    # @option opts [Symbol]  :type
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -22,8 +24,9 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # -
+    # String representation of the object.
+    #
+    # @return [String]
     #
     def to_s
       content_tag(

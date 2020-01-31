@@ -103,22 +103,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>The Alert helper is meant to help you rapidly build Bootstrap Alert
-components quickly and easily. The dissmiss button is optional.</li>
-</ul>
-
-<p><code>
-    &lt;%= alert_helper :warning, dismissable: true do %&gt;
-      &lt;% if @model.errors.present? %&gt;
-        <p>Some kind of error</p>
-      &lt;% end %&gt;
-    &lt;% end %&gt;</p>
-
-<pre class="code ruby"><code class="ruby">&lt;%= alert_helper(:success, dismissible: true) { &quot;Successful save&quot;}
-</code></pre>
-
-<p></code></p>
+    <p>The Alert helper is meant to help you rapidly build Bootstrap Alert
+components quickly and easily. The dissmiss button is optional.</p>
 
 
   </div>
@@ -158,9 +144,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>The dissmiss button, if the element has one.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>The dissmiss button, if the element has one.</p>
 </div></span>
   
 </li>
@@ -185,9 +169,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Used to generate Bootstrap alert components quickly.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Class constructor.</p>
 </div></span>
   
 </li>
@@ -210,9 +192,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Used to render out the Alert component.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Used to render out the Alert component.</p>
 </div></span>
   
 </li>
@@ -246,9 +226,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Used to generate Bootstrap alert components quickly.</li>
-</ul>
+    <p>Class constructor</p>
 
 
   </div>
@@ -276,16 +254,14 @@ components quickly and easily. The dissmiss button is optional.</li>
   
     <li>
       
-        <span class='name'>-</span>
+        <span class='name'>context_or_options</span>
       
       
         <span class='type'>(<tt>NilClass|String|Symbol|Hash</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
-        &mdash;
-        <div class='inline'><p>Bootstrap class context, or options hash.</p>
-</div>
       
     </li>
   
@@ -300,26 +276,6 @@ components quickly and easily. The dissmiss button is optional.</li>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
-        &mdash;
-        <div class='inline'><p><code>
-  opts = {
-    id:     [String] - ID of the alert box
-    class:  [String] - Additional classes for the alert box
-  }
-</code></p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>&amp;block</span>
-      
-      
-        <span class='type'>(<tt>Proc</tt>)</span>
-      
-      
-      
     </li>
   
 </ul>
@@ -331,18 +287,18 @@ components quickly and easily. The dissmiss button is optional.</li>
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
-41
-42
-43</pre>
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_context_or_options'>context_or_options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -376,9 +332,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>The dissmiss button, if the element has one.</li>
-</ul>
+    <p>The dissmiss button, if the element has one.</p>
 
 
   </div>
@@ -405,14 +359,14 @@ components quickly and easily. The dissmiss button is optional.</li>
       <pre class="lines">
 
 
-50
-51
-52
-53
-54</pre>
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close_button'>close_button</span>
   <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='symbol'>:button</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>close</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span> <span class='label'>dismiss:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>alert</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='label'>aria:</span> <span class='lbrace'>{</span> <span class='label'>label:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Close</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -435,9 +389,7 @@ components quickly and easily. The dissmiss button is optional.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Used to render out the Alert component.</li>
-</ul>
+    <p>Used to render out the Alert component.</p>
 
 
   </div>
@@ -464,15 +416,15 @@ components quickly and easily. The dissmiss button is optional.</li>
       <pre class="lines">
 
 
-61
-62
-63
-64
-65
-66</pre>
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/alert.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:div</span><span class='comma'>,</span> <span class='label'>id:</span> <span class='ivar'>@id</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='id identifier rubyid_container_class'>container_class</span> <span class='kw'>do</span>
@@ -490,9 +442,9 @@ components quickly and easily. The dissmiss button is optional.</li>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

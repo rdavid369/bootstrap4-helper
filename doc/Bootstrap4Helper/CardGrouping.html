@@ -101,7 +101,17 @@
   
 </div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Class for other Card group type components to inherit from.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="CardColumn.html" title="Bootstrap4Helper::CardColumn (class)">CardColumn</a></span>, <span class='object_link'><a href="CardDeck.html" title="Bootstrap4Helper::CardDeck (class)">CardDeck</a></span>, <span class='object_link'><a href="CardGroup.html" title="Bootstrap4Helper::CardGroup (class)">CardGroup</a></span></p>
 </div>
@@ -137,9 +147,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Builds a <code>Card</code> for the grouping class.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Builds a <code>Card</code> for the grouping class.</p>
 </div></span>
   
 </li>
@@ -164,9 +172,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Used to initialize a new Card Group.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Used to initialize a new Card Grouping.</p>
 </div></span>
   
 </li>
@@ -200,9 +206,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Used to initialize a new Card Group.</li>
-</ul>
+    <p>Used to initialize a new Card Grouping.</p>
 
 
   </div>
@@ -237,6 +241,46 @@
   
 </ul>
 
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
+
 
 </div><table class="source_code">
   <tr>
@@ -244,17 +288,17 @@
       <pre class="lines">
 
 
+15
 16
 17
 18
 19
 20
 21
-22
-23</pre>
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/card_grouping.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/card_grouping.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -287,9 +331,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Builds a <code>Card</code> for the grouping class.</li>
-</ul>
+    <p>Builds a <code>Card</code> for the grouping class.</p>
 
 
   </div>
@@ -333,12 +375,12 @@
       <pre class="lines">
 
 
-31
-32
-33</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/card_grouping.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/card_grouping.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_card'>card</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Card.html" title="Bootstrap4Helper::Card (class)">Card</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Card.html#initialize-instance_method" title="Bootstrap4Helper::Card#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -353,9 +395,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

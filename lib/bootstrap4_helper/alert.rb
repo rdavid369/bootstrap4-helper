@@ -6,7 +6,7 @@ module Bootstrap4Helper
     # Class constructor
     #
     # @param [Class] template - Template in which your are binding too.
-    # @param [NilClass|String|Symbol|Hash] - Bootstrap class context, or options hash.
+    # @param [NilClass|String|Symbol|Hash] context_or_options
     # @param [Hash]  opts
     # @return [Alert]
     #

@@ -103,9 +103,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Builds a Accordion out of the collapse component of Bootstrap 4.</li>
-</ul>
+    <p>Builds a Accordion out of the collapse component of Bootstrap 4.</p>
 
 
   </div>
@@ -165,9 +163,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Builds the body component for the accordion, which is actually the body of a Card.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Builds the body component for the accordion, which is actually the body of a Card.</p>
 </div></span>
   
 </li>
@@ -190,9 +186,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Builds a header component for the accordion, which is actually the header of a Card.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Builds a header component for the accordion, which is actually the header of a Card.</p>
 </div></span>
   
 </li>
@@ -217,7 +211,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>Class constructor -.</p>
 </div></span>
   
 </li>
@@ -240,9 +234,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Because Accordions are basically <code>Cards</code> with a wrapper, we might as well catch common <code>Card</code> methods and send them to the card object.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Because Accordions are basically <code>Cards</code> with a wrapper, we might as well catch common <code>Card</code> methods and send them to the card object.</p>
 </div></span>
   
 </li>
@@ -265,7 +257,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>Checks if the Object reponds to missing.</p>
 </div></span>
   
 </li>
@@ -288,9 +280,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Leaving off the the default <code>accordion</code> class because with only 1 accordion, there is no bottom.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Leaving off the default <code>accordion</code> class because with only 1 accordion, there is no bottom.</p>
 </div></span>
   
 </li>
@@ -324,7 +314,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <h2>Class constructor</h2>
 
 
   </div>
@@ -359,6 +349,64 @@
   
 </ul>
 
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:parent</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:target</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
+
 
 </div><table class="source_code">
   <tr>
@@ -366,8 +414,6 @@
       <pre class="lines">
 
 
-21
-22
 23
 24
 25
@@ -376,10 +422,12 @@
 28
 29
 30
-31</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -416,11 +464,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Because Accordions are basically <code>Cards</code> with a wrapper, we might as
+    <p>Because Accordions are basically <code>Cards</code> with a wrapper, we might as
 well catch common <code>Card</code> methods and send them to the card object.  No
-point in creating similar methods for <code>Accordions</code>.</li>
-</ul>
+point in creating similar methods for <code>Accordions</code>.</p>
 
 
   </div>
@@ -460,16 +506,16 @@ point in creating similar methods for <code>Accordions</code>.</li>
       <pre class="lines">
 
 
+77
+78
 79
 80
 81
 82
-83
-84
-85</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#CARD_METHODS-constant" title="Bootstrap4Helper::Accordion::CARD_METHODS (constant)">CARD_METHODS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
@@ -504,15 +550,13 @@ point in creating similar methods for <code>Accordions</code>.</li>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'></div>
+    <div class='inline'><p>The <code>@parent</code> gets used to set the parent element for the accordion. This
+gets used primarily in the <code>AccordionGroup</code>.</p>
+</div>
   </div>
 
-<ul>
-<li><p>Builds the body component for the accordion, which is actually the body
-of a Card.</p></li>
-<li><p>The <code>@parent</code> gets used to set the parent element for the accordion. This
-gets used primarily in the <code>AccordionGroup</code>.</p></li>
-</ul>
+<p>Builds the body component for the accordion, which is actually the body
+of a Card.</p>
 
 
   </div>
@@ -556,16 +600,16 @@ gets used primarily in the <code>AccordionGroup</code>.</p></li>
       <pre class="lines">
 
 
+62
 63
 64
 65
 66
 67
-68
-69</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_body'>body</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='label'>parent:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#</span><span class='embexpr_beg'>#{</span><span class='ivar'>@parent</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='ivar'>@parent</span><span class='period'>.</span><span class='id identifier rubyid_present?'>present?</span>
@@ -590,10 +634,8 @@ gets used primarily in the <code>AccordionGroup</code>.</p></li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Builds a header component for the accordion, which is actually the header
-of a Card.</li>
-</ul>
+    <p>Builds a header component for the accordion, which is actually the header
+of a Card.</p>
 
 
   </div>
@@ -637,7 +679,6 @@ of a Card.</li>
       <pre class="lines">
 
 
-40
 41
 42
 43
@@ -647,10 +688,11 @@ of a Card.</li>
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@card</span><span class='period'>.</span><span class='id identifier rubyid_header'>header</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -679,7 +721,7 @@ of a Card.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <p>Checks if the Object reponds to missing.</p>
 
 
   </div>
@@ -706,12 +748,12 @@ of a Card.</li>
       <pre class="lines">
 
 
-90
-91
-92</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to_missing?'>respond_to_missing?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="#CARD_METHODS-constant" title="Bootstrap4Helper::Accordion::CARD_METHODS (constant)">CARD_METHODS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>super</span>
@@ -732,10 +774,8 @@ of a Card.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Leaving off the the default <code>accordion</code> class because with only 1 accordion,
-there is no bottom.</li>
-</ul>
+    <p>Leaving off the default <code>accordion</code> class because with only 1 accordion,
+there is no bottom.</p>
 
 
   </div>
@@ -762,14 +802,14 @@ there is no bottom.</li>
       <pre class="lines">
 
 
+97
+98
+99
 100
-101
-102
-103
-104</pre>
+101</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/accordion.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:div</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>card </span><span class='embexpr_beg'>#{</span><span class='ivar'>@class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>data:</span> <span class='ivar'>@data</span> <span class='kw'>do</span>
@@ -786,9 +826,9 @@ there is no bottom.</li>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

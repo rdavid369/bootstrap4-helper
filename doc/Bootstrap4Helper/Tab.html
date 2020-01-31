@@ -103,7 +103,17 @@
   
 </div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Builds a Tab component.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
   
     
@@ -145,9 +155,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Builds the Content object for the Tab.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Builds the Content object for the Tab.</p>
 </div></span>
   
 </li>
@@ -172,7 +180,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>Class constructor.</p>
 </div></span>
   
 </li>
@@ -195,9 +203,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Builds a custom Nav component for the tabs.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Builds a custom Nav component for the tabs.</p>
 </div></span>
   
 </li>
@@ -220,9 +226,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>This has a weird interaction.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>This has a weird interaction.</p>
 </div></span>
   
 </li>
@@ -256,7 +260,14 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>The support types are: <code>:tabs</code> and <code>:pills</code></p>
+</div>
+  </div>
+
+<p>Class constructor</p>
 
 
   </div>
@@ -289,18 +300,56 @@
       
     </li>
   
-    <li>
-      
-        <span class='name'></span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
 </ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:type</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
 
 
 </div><table class="source_code">
@@ -309,7 +358,6 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -317,10 +365,11 @@
 21
 22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -354,9 +403,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Builds the Content object for the Tab.</li>
-</ul>
+    <p>Builds the Content object for the Tab.</p>
 
 
   </div>
@@ -379,6 +426,44 @@
     </li>
   
 </ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
 
 <p class="tag_title">Returns:</p>
 <ul class="return">
@@ -400,12 +485,12 @@
       <pre class="lines">
 
 
-50
-51
-52</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Tab/Content.html" title="Bootstrap4Helper::Tab::Content (class)">Content</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Tab/Content.html#initialize-instance_method" title="Bootstrap4Helper::Tab::Content#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -426,9 +511,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Builds a custom Nav component for the tabs.</li>
-</ul>
+    <p>Builds a custom Nav component for the tabs.</p>
 
 
   </div>
@@ -452,6 +535,35 @@
   
 </ul>
 
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -472,8 +584,6 @@
       <pre class="lines">
 
 
-32
-33
 34
 35
 36
@@ -482,10 +592,12 @@
 39
 40
 41
-42</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nav'>nav</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:class</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> nav-</span><span class='embexpr_beg'>#{</span><span class='ivar'>@type</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -514,12 +626,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>This has a weird interaction.  Because this object doesn&#39;t actually return any wrapping
-string or DOM element, we want to return nil, so that only the output buffer on the sub components are returned.
+    <p>This has a weird interaction.  Because this object doesn&#39;t actually return any wrapping
+string or DOM element, we want to return nil, so that only the output buffer on the sub components are
+returned.
 If we return the return value of the block, we will get the last element added to the input
-buffer as an unescaped string.</li>
-</ul>
+buffer as an unescaped string.</p>
 
 
   </div>
@@ -533,14 +644,14 @@ buffer as an unescaped string.</li>
       <pre class="lines">
 
 
-60
-61
-62
-63
-64</pre>
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/tab.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@content</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -557,9 +668,9 @@ buffer as an unescaped string.</li>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

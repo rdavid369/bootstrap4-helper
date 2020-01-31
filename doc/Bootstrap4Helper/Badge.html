@@ -103,9 +103,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Creates Bootstrap badge components that can be used anywhere.</li>
-</ul>
+    <p>Creates Bootstrap badge components that can be used anywhere.</p>
 
 
   </div>
@@ -147,7 +145,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>Class constructor.</p>
 </div></span>
   
 </li>
@@ -170,7 +168,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>String representation of the object.</p>
 </div></span>
   
 </li>
@@ -204,7 +202,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <p>Class constructor</p>
 
 
   </div>
@@ -226,11 +224,13 @@
   
     <li>
       
-        <span class='name'>context_or_options.</span>
+        <span class='name'>context_or_options</span>
       
       
         <span class='type'>(<tt>NilClass|String|Symbol|Hash</tt>)</span>
       
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
     </li>
@@ -257,17 +257,17 @@
       <pre class="lines">
 
 
+12
+13
+14
+15
 16
 17
 18
-19
-20
-21
-22
-23</pre>
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/badge.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/badge.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_context_or_options'>context_or_options</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -300,7 +300,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <p>String representation of the object.</p>
 
 
   </div>
@@ -314,12 +314,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/badge.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/badge.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_content_tag'>content_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='lparen'>(</span><span class='symbol'>:badge</span><span class='comma'>,</span> <span class='symbol'>:span</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>id:</span> <span class='ivar'>@id</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='id identifier rubyid_container_class'>container_class</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='ivar'>@content</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -334,9 +334,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

@@ -16,7 +16,7 @@ module Bootstrap4Helper
 
     # Class constructor
     #
-    # @params [Hash] args
+    # @param  [Hash] _args
     # @return [ClassName]
     #
     def initialize(_args = {})

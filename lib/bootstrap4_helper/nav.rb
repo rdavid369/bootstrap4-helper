@@ -1,17 +1,16 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # -
+  # Builds a Nav Component that can be used in other components.
+  #
   #
   class Nav < Component
-    # @description
-    # -
+    # Class constructor
     #
-    # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options
-    # @param [Hash]
+    # @param [ActionView]     template
+    # @param [Hash]           opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @option opts [Hash]    :child
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -25,14 +24,19 @@ module Bootstrap4Helper
       @dropdown = Dropdown.new(@template)
     end
 
-    # @description
-    # - Adds an nav-item to the nav component. this method gets used when the nav-item
+    # rubocop:disable Metrics/MethodLength
+
+    # Adds an nav-item to the nav component. this method gets used when the nav-item
     # links to content in a tab or something.
     #
     # @param [Symbol|String] target
     # @param [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @option opts [Hash]    :aria
+    # @return [String]
     #
-    # rubocop:disable Metrics/MethodLength
     def item(target, opts = {})
       id    = opts.fetch(:id,    nil)
       klass = opts.fetch(:class, '')
@@ -54,8 +58,12 @@ module Bootstrap4Helper
     end
     # rubocop:enable Metrics/MethodLength
 
-    # @description
-    # - Use this when the nav item is nothing more than a hyperlink.
+    # Use this when the nav item is nothing more than a hyperlink.
+    #
+    # @param [String|NilClass] name
+    # @param [Hash|NilClass]   options
+    # @param [Hash|NilClass]   html_options
+    # @return [String]
     #
     def link(name = nil, options = nil, html_options = nil, &block)
       html_options = (html_options || {}).merge(class: 'nav-link')
@@ -63,11 +71,15 @@ module Bootstrap4Helper
       @template.link_to(name, options, html_options, &block)
     end
 
-    # @description
-    # - Creates a dropdown menu for the nav.
+    # Creates a dropdown menu for the nav.
     #
     # @param [NilClass|Symbol|String] name
     # @param [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @option opts [Hash]    :aria
+    # @return [String]
     #
     def dropdown(name, opts = {}, &block)
       id    = opts.fetch(:id,    nil)
@@ -88,8 +100,9 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # -
+    # String representation of the object.
+    #
+    # @return [String]
     #
     def to_s
       content_tag :ul, id: @id, class: "nav #{@class}" do

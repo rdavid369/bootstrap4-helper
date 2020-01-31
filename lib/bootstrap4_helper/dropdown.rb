@@ -1,18 +1,16 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Builds a Dropdown component that can be used in other components.
   #
   #
   class Dropdown < Component
-    # @description
-    # -
+    # Class constructor
     #
-    # @param [ActionView] template
+    # @param [ActionView]    template
     # @param [Symbol|String] type
-    # @param [Hash] opts
-    # @param [Hash]
+    # @param [Hash]          opts
+    # @option opts [String] :id
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
     #
     def initialize(template, type = :dropdown, opts = {}, &block)
       super(template)
@@ -24,13 +22,16 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # - Used to generate a button for the dropdown.  The buttons default as just
+    # Used to generate a button for the dropdown.  The buttons default as just
     # a button that opens the coresponding dropdown menu.  The `split: true` option
     # make the button just the arrow indicator that open the menu.
     #
-    # @param [Symbol] context
-    # @param [Hash] opts
+    # @param  [Symbol] context
+    # @param  [Hash]   opts
+    # @option opts [Boolean] :split
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
     # @return [String]
     #
     def button(context = :primary, opts = {})
@@ -52,18 +53,21 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # - Used to create a new `Dropdown::Menu`
+    # Used to create a new `Dropdown::Menu`
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String] :id
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
     # @return [Dropdown::Menu]
     #
     def menu(opts = {}, &block)
       Menu.new(@template, opts, &block)
     end
 
-    # @description
-    # -
+    # String reprentation of the object.
+    #
+    # @return [String]
     #
     def to_s
       content_tag :div, id: @id, class: "#{container_class} #{@class}", data: @data do
@@ -73,8 +77,7 @@ module Bootstrap4Helper
 
     private
 
-    # @description
-    # - Returns the container class for the dropdown component.
+    # Returns the container class for the dropdown component.
     #
     # @return [String]
     #

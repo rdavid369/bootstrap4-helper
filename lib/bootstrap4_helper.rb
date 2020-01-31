@@ -75,7 +75,7 @@ module Bootstrap4Helper
   #   <% end %>
   # ```
   #
-  # @param  [Mixed] *args
+  # @param  [Mixed] args
   # @return [String]
   #
   def alert_helper(*args, &block)
@@ -94,7 +94,7 @@ module Bootstrap4Helper
   #  </li>
   # ```
   #
-  # @param  [Mixed] *args
+  # @param  [Mixed] args
   # @return [String]
   #
   def badge_helper(*args, &block)

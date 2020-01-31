@@ -10,7 +10,6 @@ module Bootstrap4Helper
     # @option opts [String] :id
     # @option opts [String] :class
     # @option opts [Hash]   :data
-    # @param [Hash]
     #
     def initialize(template, opts = {}, &block)
       super(template)

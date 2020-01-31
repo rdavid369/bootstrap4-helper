@@ -1,21 +1,16 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  #
-  #
-  #
   class Tab
-    #
+    # Build a Content component to be used with Tabs
     #
     #
     class Content < Component
-      # @description
-      # -
+      # Class constructor
       #
       # @param [ActionView] template
-      # @param [NilClass|String|Symbol|Hash] context_or_options
-      # @param [Hash]
+      # @param [Hash] opts
+      # @option opts [String]  :id
+      # @option opts [String]  :class
+      # @option opts [Hash]    :data
       #
       def initialize(template, opts = {}, &block)
         super(template)
@@ -26,19 +21,31 @@ module Bootstrap4Helper
         @content = block || proc { '' }
       end
 
-      # @description
-      # -
+      # Builds the pane for the tab.
+      #
+      # @param [Symbol] source
+      # @param [Hash] opts
+      # @option opts [String]  :class
+      # @option opts [Hash]    :data
+      # @return [String]
       #
       def pane(source, opts = {}, &block)
-        id    = opts.fetch(:id,    nil)
         klass = opts.fetch(:class, '')
         data  = opts.fetch(:data,  {})
 
-        content_tag :div, id: source, class: "tab-pane #{klass}", role: 'tabpanel', &block
+        content_tag(
+          :div,
+          id:    source,
+          class: "tab-pane #{klass}",
+          role:  'tabpanel',
+          data:  data,
+          &block
+        )
       end
 
-      # @description
-      # -
+      # String representation of the object.
+      #
+      # @return [String]
       #
       def to_s
         content_tag :div, id: @id, class: "tab-content #{@class}" do

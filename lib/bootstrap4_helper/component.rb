@@ -72,7 +72,7 @@ module Bootstrap4Helper
     # contectual class.  So we will assign it to `secondary` and
     # return the Hash to be used as options.
     #
-    # @params [Hash|NilClass|String|Symbol] *args
+    # @param  [Hash|NilClass|String|Symbol] args
     # @return [Array]
     #
     def parse_arguments(*args)

@@ -1,16 +1,17 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Builds a Modal window component.
   #
   #
   class Modal < Component
-    # @description
-    # -
+    # Class constructor
     #
-    # @param [ActionView] template
-    # @param [Hash]
+    # @param  [ActionView] template
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @option opts [Boolean] :scrollable
+    # @option opts [Boolean] :vcentered
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -23,46 +24,59 @@ module Bootstrap4Helper
       @content    = block || proc { '' }
     end
 
-    # @description
-    # - Build the header component for the modal.
+    # Build the header component for the modal.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @return [String]
     #
     def header(opts = {}, &block)
       build_main_component :header, opts, &block
     end
 
-    # @description
-    # - Builds the body component.
+    # Builds the body component.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @return [String]
     #
     def body(opts = {}, &block)
       build_main_component :body, opts, &block
     end
 
-    # @description
-    # - Builds the footer component.
+    # Builds the footer component.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @return [String]
     #
     def footer(opts = {}, &block)
       build_main_component :footer, opts, &block
     end
 
-    # @description
-    # - Builds a title component.
+    # Builds a title component.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @return [String]
     #
     def title(opts = {}, &block)
       build_sub_component :h5, :title, opts, &block
     end
 
-    # @description
-    # - Builds a close button component.
+    # Builds a close button component.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String] :class
+    # @return [String]
     #
     def close_button(opts = {})
       klass = opts.fetch(:class, '')
@@ -78,8 +92,9 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # -
+    # String representation of the object.
+    #
+    # @return [String]
     #
     def to_s
       content_tag :div, id: @id, class: "modal #{@class}", tabindex: -1, role: 'dialog', data: @data do
@@ -91,22 +106,25 @@ module Bootstrap4Helper
 
     private
 
-    # @description
-    # - Used to build main components, usually divs.
+    # Used to build main components, usually divs.
     #
-    # @param [Symbol|String] type
-    # @param [Hash] opts
+    # @param  [Symbol|String] type
+    # @param  [Hash] opts
+    # @return [String]
     #
     def build_main_component(type, opts = {}, &block)
       build_sub_component :div, type, opts, &block
     end
 
-    # @description
-    # - Used to build more specific components.
+    # Used to build more specific components.
     #
     # @param [Symbol] tag
     # @param [Symbol|String] type
     # @param [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @return [String]
     #
     def build_sub_component(tag, type, opts = {}, &block)
       id    = opts.fetch(:id,    nil)
@@ -122,15 +140,15 @@ module Bootstrap4Helper
       )
     end
 
-    # @description
-    # - Builds the `x` button normally used in the header.
+    # Builds the `x` button normally used in the header.
+    #
+    # @return [String]
     #
     def xbutton
       content_tag :span, '&times;'.html_safe, aria: { hidden: true }
     end
 
-    # @description
-    # - Gets the scrollable CSS class.
+    # Gets the scrollable CSS class.
     #
     # @return [String]
     #
@@ -138,8 +156,7 @@ module Bootstrap4Helper
       @scrollable ? 'modal-dialog-scrollable' : ''
     end
 
-    # @description
-    # - Gets the vertical-center CSS class.
+    # Gets the vertical-center CSS class.
     #
     # @return [String]
     #

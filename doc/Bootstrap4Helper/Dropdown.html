@@ -103,7 +103,17 @@
   
 </div>
 
-<h2>Defined Under Namespace</h2>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Builds a Dropdown component that can be used in other components.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
 <p class="children">
   
     
@@ -145,9 +155,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Used to generate a button for the dropdown.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Used to generate a button for the dropdown.</p>
 </div></span>
   
 </li>
@@ -172,7 +180,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>Class constructor.</p>
 </div></span>
   
 </li>
@@ -195,9 +203,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><ul>
-<li>Used to create a new <code>Dropdown::Menu</code>.</li>
-</ul>
+    <span class="summary_desc"><div class='inline'><p>Used to create a new <code>Dropdown::Menu</code>.</p>
 </div></span>
   
 </li>
@@ -206,7 +212,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -220,7 +226,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>-.</p>
+    <span class="summary_desc"><div class='inline'><p>String reprentation of the object.</p>
 </div></span>
   
 </li>
@@ -254,7 +260,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <p>Class constructor</p>
 
 
   </div>
@@ -300,18 +306,49 @@
       
     </li>
   
-    <li>
-      
-        <span class='name'></span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-    </li>
-  
 </ul>
+
+  
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
 
 
 </div><table class="source_code">
@@ -320,18 +357,18 @@
       <pre class="lines">
 
 
+15
+16
 17
 18
 19
 20
 21
 22
-23
-24
-25</pre>
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='comma'>,</span> <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='symbol'>:dropdown</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='rparen'>)</span>
@@ -365,11 +402,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Used to generate a button for the dropdown.  The buttons default as just
+    <p>Used to generate a button for the dropdown.  The buttons default as just
 a button that opens the coresponding dropdown menu.  The <code>split: true</code> option
-make the button just the arrow indicator that open the menu.</li>
-</ul>
+make the button just the arrow indicator that open the menu.</p>
 
 
   </div>
@@ -406,6 +441,53 @@ make the button just the arrow indicator that open the menu.</li>
   
 </ul>
 
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:split</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -426,7 +508,6 @@ make the button just the arrow indicator that open the menu.</li>
       <pre class="lines">
 
 
-36
 37
 38
 39
@@ -443,10 +524,11 @@ make the button just the arrow indicator that open the menu.</li>
 50
 51
 52
-53</pre>
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_button'>button</span><span class='lparen'>(</span><span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='symbol'>:primary</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_split'>split</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:split</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -482,9 +564,7 @@ make the button just the arrow indicator that open the menu.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <ul>
-<li>Used to create a new <code>Dropdown::Menu</code></li>
-</ul>
+    <p>Used to create a new <code>Dropdown::Menu</code></p>
 
 
   </div>
@@ -508,6 +588,44 @@ make the button just the arrow indicator that open the menu.</li>
   
 </ul>
 
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:id</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:class</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:data</span>
+          <span class="type">(<tt>Hash</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+        </li>
+      
+    </ul>
+  
+    
+    
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -528,12 +646,12 @@ make the button just the arrow indicator that open the menu.</li>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_menu'>menu</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Dropdown/Menu.html" title="Bootstrap4Helper::Dropdown::Menu (class)">Menu</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Dropdown/Menu.html#initialize-instance_method" title="Bootstrap4Helper::Dropdown::Menu#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@template</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -546,7 +664,7 @@ make the button just the arrow indicator that open the menu.</li>
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -554,13 +672,26 @@ make the button just the arrow indicator that open the menu.</li>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>-</p>
+    <p>String reprentation of the object.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -568,14 +699,14 @@ make the button just the arrow indicator that open the menu.</li>
       <pre class="lines">
 
 
-68
-69
-70
-71
-72</pre>
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/bootstrap4_helper/dropdown.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='id identifier rubyid_content_tag'>content_tag</span> <span class='symbol'>:div</span><span class='comma'>,</span> <span class='label'>id:</span> <span class='ivar'>@id</span><span class='comma'>,</span> <span class='label'>class:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container_class'>container_class</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='ivar'>@class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>data:</span> <span class='ivar'>@data</span> <span class='kw'>do</span>
@@ -592,9 +723,9 @@ make the button just the arrow indicator that open the menu.</li>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 30 22:28:09 2020 by
+  Generated on Fri Jan 31 13:25:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.1).
+  0.9.24 (ruby-2.6.0).
 </div>
 
     </div>

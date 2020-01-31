@@ -1,17 +1,18 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Builds a Tab component.
   #
   #
   class Tab < Component
-    # @description
-    # -
+    # Class constructor
+    #
+    # @note The support types are: `:tabs` and `:pills`
     #
     # @param [ActionView] template
     # @param [Hash] opts
-    # @param [Hash]
+    # @option opts [Symbol]  :type
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -23,10 +24,11 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # - Builds a custom Nav component for the tabs.
+    # Builds a custom Nav component for the tabs.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
     # @return [Nav]
     #
     def nav(opts = {}, &block)
@@ -41,19 +43,21 @@ module Bootstrap4Helper
       Nav.new(@template, opts, &block)
     end
 
-    # @description
-    # - Builds the Content object for the Tab.
+    # Builds the Content object for the Tab.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
     # @return [Tab::Content]
     #
     def content(opts = {}, &block)
       Content.new(@template, opts, &block)
     end
 
-    # @description
-    # - This has a weird interaction.  Because this object doesn't actually return any wrapping
-    # string or DOM element, we want to return nil, so that only the output buffer on the sub components are returned.
+    # This has a weird interaction.  Because this object doesn't actually return any wrapping
+    # string or DOM element, we want to return nil, so that only the output buffer on the sub components are
+    # returned.
     # If we return the return value of the block, we will get the last element added to the input
     # buffer as an unescaped string.
     #
