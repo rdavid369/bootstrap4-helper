@@ -1,13 +1,10 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Creates a Card Deck component
   #
   #
   class CardDeck < CardGrouping
-    # @description
-    # -
+    # String representation of the object.
+    #
     #
     def to_s
       content_tag :div, id: @id, class: "card-deck #{@class}", data: @data do

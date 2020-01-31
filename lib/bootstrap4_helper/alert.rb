@@ -1,35 +1,13 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - The Alert helper is meant to help you rapidly build Bootstrap Alert
+  # The Alert helper is meant to help you rapidly build Bootstrap Alert
   # components quickly and easily. The dissmiss button is optional.
   #
-  #   <code>
-  #     <%= alert_helper :warning, dismissable: true do %>
-  #       <% if @model.errors.present? %>
-  #         <p>Some kind of error</p>
-  #       <% end %>
-  #     <% end %>
-  #
-  #     <%= alert_helper(:success, dismissible: true) { "Successful save"}
-  #   </code>
-  #
   class Alert < Component
-    # @description
-    # - Used to generate Bootstrap alert components quickly.
+    # Class constructor
     #
     # @param [Class] template - Template in which your are binding too.
     # @param [NilClass|String|Symbol|Hash] - Bootstrap class context, or options hash.
     # @param [Hash]  opts
-    #   <code>
-    #     opts = {
-    #       id:     [String] - ID of the alert box
-    #       class:  [String] - Additional classes for the alert box
-    #     }
-    #   </code>
-    # @param [Proc] &block
     # @return [Alert]
     #
     def initialize(template, context_or_options = nil, opts = {}, &block)
@@ -42,8 +20,7 @@ module Bootstrap4Helper
       @content     = block || proc { '' }
     end
 
-    # @description
-    # - The dissmiss button, if the element has one.
+    # The dissmiss button, if the element has one.
     #
     # @return [String]
     #
@@ -53,8 +30,7 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # - Used to render out the Alert component.
+    # Used to render out the Alert component.
     #
     # @return [String]
     #
@@ -67,8 +43,7 @@ module Bootstrap4Helper
 
     private
 
-    # @description
-    # - Used to get the container classes.
+    # Used to get the container classes.
     #
     # @return [String]
     #

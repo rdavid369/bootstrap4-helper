@@ -1,16 +1,15 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Class for other Card group type components to inherit from.
   #
   #
   class CardGrouping < Component
-    # @description
-    # - Used to initialize a new Card Group.
+    # Used to initialize a new Card Grouping.
     #
     # @param [Class] template
     # @param [Hash]  opts
+    # @option opts [String] :id
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
     # @return [Card]
     #
     def initialize(template, opts = {}, &block)
@@ -22,8 +21,7 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # - Builds a `Card` for the grouping class.
+    # Builds a `Card` for the grouping class.
     #
     # @param [Hash] opts
     # @return [Card]

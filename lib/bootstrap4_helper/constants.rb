@@ -1,9 +1,6 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - Simple class for storing constants
+  # Simple class for storing constants
+  #
   #
   class Constants
     COMPONENTS = %i[

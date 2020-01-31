@@ -1,9 +1,7 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Simple configuration object for setting options for the gem.
   #
+  # @todo Build a better, more comprehensive system.
   #
   class Configuration
     DEFAULT_SETTINGS = {
@@ -16,8 +14,7 @@ module Bootstrap4Helper
 
     attr_accessor(*DEFAULT_SETTINGS.keys)
 
-    # @description
-    # -
+    # Class constructor
     #
     # @params [Hash] args
     # @return [ClassName]
@@ -26,8 +23,9 @@ module Bootstrap4Helper
       DEFAULT_SETTINGS.each { |key, value| instance_variable_set("@#{key}", value) }
     end
 
-    # @description
-    # - Simple predicate method
+    # Simple predicate method
+    #
+    # @return [Boolean]
     #
     def autoload_in_views?
       @autoload_in_views

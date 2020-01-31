@@ -1,17 +1,13 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - Creates Bootstrap badge components that can be used anywhere.
+  # Creates Bootstrap badge components that can be used anywhere.
+  #
   #
   class Badge < Component
-    # @description
-    # -
+    # Class constructor
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] context_or_options.
-    # @param [Hash]  opts
+    # @param [NilClass|String|Symbol|Hash] context_or_options
+    # @param [Hash] opts
     #
     def initialize(template, context_or_options = nil, opts = {}, &block)
       super(template)
@@ -22,8 +18,8 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # -
+    # String representation of the object.
+    #
     #
     def to_s
       content_tag(config(:badge, :span), id: @id, class: container_class) { @content.call(self) }
@@ -31,8 +27,7 @@ module Bootstrap4Helper
 
     private
 
-    # @description
-    # - Used to get the container classes.
+    # Used to get the container classes.
     #
     # @return [String]
     #

@@ -26,5 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bootstrap', '~> 4.3.1'
   spec.add_development_dependency 'jquery-rails'
   spec.add_development_dependency 'rails', '~> 5.2.3'
+  spec.add_development_dependency 'redcarpet'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'solargraph'
   spec.add_development_dependency 'sqlite3'
 end

@@ -1,9 +1,6 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - Builds a Accordion out of the collapse component of Bootstrap 4.
+  # Builds a Accordion out of the collapse component of Bootstrap 4.
+  #
   #
   class Accordion < Component
     CARD_METHODS = %i[
@@ -12,11 +9,16 @@ module Bootstrap4Helper
       image_overlay
     ].freeze
 
-    # @description
+    # Class constructor
     # -
     #
     # @param [ActionView] template
     # @param [Hash] opts
+    # @option opts [String] :id
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
+    # @option opts [String] :parent
+    # @option opts [String] :target
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -30,11 +32,10 @@ module Bootstrap4Helper
       @card    = Card.new(@template)
     end
 
-    # @description
-    # - Builds a header component for the accordion, which is actually the header
+    # Builds a header component for the accordion, which is actually the header
     # of a Card.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
     # @return [String]
     #
     def header(opts = {}, &block)
@@ -49,15 +50,13 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # - Builds the body component for the accordion, which is actually the body
+    # Builds the body component for the accordion, which is actually the body
     # of a Card.
     #
-    # @note
-    # - The `@parent` gets used to set the parent element for the accordion. This
-    # gets used primarily in the `AccordionGroup`.
+    # @note The `@parent` gets used to set the parent element for the accordion. This
+    #   gets used primarily in the `AccordionGroup`.
     #
-    # @param [Hash] opts
+    # @param  [Hash] opts
     # @return [String]
     #
     def body(opts = {}, &block)
@@ -68,8 +67,7 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # - Because Accordions are basically `Cards` with a wrapper, we might as
+    # Because Accordions are basically `Cards` with a wrapper, we might as
     # well catch common `Card` methods and send them to the card object.  No
     # point in creating similar methods for `Accordions`.
     #
@@ -84,15 +82,14 @@ module Bootstrap4Helper
       end
     end
 
-    # @description
-    # -
+    # Checks if the Object reponds to missing. 
+    #
     #
     def respond_to_missing?(method, include_private = false)
       CARD_METHODS.include?(method) || super
     end
 
-    # @description
-    # - Leaving off the the default `accordion` class because with only 1 accordion,
+    # Leaving off the default `accordion` class because with only 1 accordion,
     # there is no bottom.
     #
     # @return [String]

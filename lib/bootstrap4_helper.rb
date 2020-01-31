@@ -8,19 +8,16 @@ end
 
 require 'bootstrap4_helper/initialize'
 
-# @todo
-# - We need a configuration system so people can specify what DOM elements to
-# use when building components.  Like, so we want <h1> for Card Headers or just
-# <div>'s.
+# This is the module that will get included in your partials.
+#
 #
 module Bootstrap4Helper
-  # @description
-  # - Creates a single Accordion element.  The header component
+  # Creates a single Accordion element.  The header component
   # already provides the DOM element to link the Collapse area.
   # You just need to provide the text or additional markup, if
   # you want it.
   #
-  # <code>
+  # ```erb
   #  <%= accordion_helper do |a| %>
   #    <%= a.header do %>
   #      // Some HTML or Ruby
@@ -29,20 +26,19 @@ module Bootstrap4Helper
   #      // Some HTML or Ruby
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Mixed] args
+  # @param  [Hash] opts
   # @return [Accordion]
   #
   def accordion_helper(opts = {}, &block)
     Accordion.new(self, opts, &block)
   end
 
-  # @description
-  # - Creates a group of Accordions that stay in sync with each other.
+  # Creates a group of Accordions that stay in sync with each other.
   # One opens, the other closes.
   #
-  # <code>
+  # ```erb
   #  <%= accordion_group_helper do |grp| %>
   #    <%= grp.accordion do |a| %>
   #      <%= a.header class: 'text-white bg-primary' do %>
@@ -62,58 +58,55 @@ module Bootstrap4Helper
   #      <% end %>
   #    <% end %>
   #  <% end $>
-  # </code>
+  # ```
   #
-  # @param [Mixed] args
+  # @param  [Mixed] args
   # @return [Accordion]
   #
   def accordion_group_helper(*args, &block)
     AccordionGroup.new(self, *args, &block)
   end
 
-  # @description
-  # - Creates an Alert component.
+  # Creates an Alert component.
   #
-  # <code>
+  # ```erb
   #   <%= alert_helper :danger, dismissble: true do %>
   #     Something went wrong with your model data...
   #   <% end %>
-  # </code>
+  # ```
   #
-  # @params [Symbol|String|Hash|NilClass] *args
+  # @param  [Mixed] *args
   # @return [String]
   #
   def alert_helper(*args, &block)
     Alert.new(self, *args, &block)
   end
 
-  # @description
-  # - Creates a badge component.  Bades have a context variable.  Providing nothing
+  # Creates a badge component.  Bades have a context variable.  Providing nothing
   # will give you the `secondary` context.
   #
-  # <code>
+  # ```erb
   #  <li>
   #    Messages: <%= badge_helper(:primary) { @messages.count } %>
   #  </li>
   #  <li>
   #    Notifications: <%= badge_healper { @notifications.count } %>
   #  </li>
-  # </code>
+  # ```
   #
-  # @params [Symbol|String|Hash|NilClass] *args
+  # @param  [Mixed] *args
   # @return [String]
   #
   def badge_helper(*args, &block)
     Badge.new(self, *args, &block)
   end
 
-  # @description
-  # - Creates a Card component.
+  # Creates a Card component.
   #
   #
-  # <code>
+  # ```erb
   #
-  # - Regular
+  # <%# Regular %>
   #
   #   <%= card_helper do |c| %>
   #     <%= c.header class: 'text-white bg-primary' do %>
@@ -133,7 +126,7 @@ module Bootstrap4Helper
   #     <% end %>
   #   <% end %>
   #
-  # - Horizontal
+  # <%# Horizontal %>
   #
   #  <div class="row">
   #    <div class="col-sm mt-3 mb-3">
@@ -155,19 +148,18 @@ module Bootstrap4Helper
   #        <% end %>
   #    </div>
   #  </div>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def card_helper(opts = {}, &block)
     Card.new(self, opts, &block)
   end
 
-  # @description
-  # - Builds a card group.
+  # Builds a card group.
   #
-  # <code>
+  # ```erb
   #  <%= card_group_helper do |group| %>
   #    <%= group.card do |c| %>
   #        <%= c.body do %>
@@ -214,19 +206,18 @@ module Bootstrap4Helper
   #        <% end %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def card_group_helper(opts = {}, &block)
     CardGroup.new(self, opts, &block)
   end
 
-  # @description
-  # - Builds a card deck.
+  # Builds a card deck.
   #
-  # <code>
+  # ```erb
   #  <%= card_deck_helper do |deck| %>
   #    <%= deck.card do |c| %>
   #        <%= c.body do %>
@@ -273,19 +264,18 @@ module Bootstrap4Helper
   #        <% end %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def card_deck_helper(opts = {}, &block)
     CardDeck.new(self, opts, &block)
   end
 
-  # @description
-  # - Builds a card column.
+  # Builds a card column.
   #
-  # <code>
+  # ```erb
   #  <%= card_column_helper do |column| %>
   #    <%= column.card do |c| %>
   #        <%= c.body do %>
@@ -332,20 +322,19 @@ module Bootstrap4Helper
   #        <% end %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def card_column_helper(opts = {}, &block)
     CardColumn.new(self, opts, &block)
   end
 
-  # @description
-  # - Generates a Dropdown component.  Default type `:dropdown`.  For inline buttons, use
+  # Generates a Dropdown component.  Default type `:dropdown`.  For inline buttons, use
   # `:group`.
   #
-  # <code>
+  # ```erb
   #  <%= dropdown_helper do |dropdown| %>
   #    <%= dropdown.button(:primary) { "Action" } %>
   #    <%= dropdown.menu do |menu| %>
@@ -395,19 +384,18 @@ module Bootstrap4Helper
   #        <%= menu.link "Forgot password", "#" %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Mixed] args
+  # @param  [Mixed] args
   # @return [String]
   #
   def dropdown_helper(*args, &block)
     Dropdown.new(self, *args, &block)
   end
 
-  # @description
-  # - Generates Modal windows.
+  # Generates Modal windows.
   #
-  # <code>
+  # ```erb
   #  <%= modal_helper id: 'exampleModal' do |m| %>
   #    <%= m.header do %>
   #        <%= m.title { 'Example Modal' } %>
@@ -425,19 +413,18 @@ module Bootstrap4Helper
   #        <% end %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def modal_helper(opts = {}, &block)
     Modal.new(self, opts, &block)
   end
 
-  # @description
-  # - Generates Nav components.
+  # Generates Nav components.
   #
-  # <code>
+  # ```erb
   #  <%= nav_helper do |nav| %>
   #    <%= nav.link "Item 1", "https://www.google.com" %>
   #    <%= nav.link "Item 2", "#" %>
@@ -452,19 +439,18 @@ module Bootstrap4Helper
   #        <%= menu.link 'Records', '#' %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
   #
-  # @param [Hash] opts
+  # @param  [Hash] opts
   # @return [String]
   #
   def nav_helper(opts = {}, &block)
     Nav.new(self, opts, &block)
   end
 
-  # @description
-  # - Generates a Tab component.
+  # Generates a Tab component.
   #
-  # <code>
+  # ```erb
   #  <%= tab_helper do |tab| %>
   #    <%= tab.nav do |nav| %>
   #        <%= nav.item :item1 do %>
@@ -505,19 +491,22 @@ module Bootstrap4Helper
   #        <% end %>
   #    <% end %>
   #  <% end %>
-  # </code>
+  # ```
+  # @param  [Mixed] args
+  # @return [String]
   #
   def tab_helper(*args, &block)
     Tab.new(self, *args, &block)
   end
 
-  # @description
-  # - Generates spinner annimations.
+  # Generates spinner annimations.
   #
-  # <code>
+  # ```erb
   #  <%= spinner_helper class: 'text-warning' %>
   #  <%= spinner_helper type: :grow, class: 'text-danger', id: 'loadingRecords' %>
-  # </code>
+  # ```
+  # @param  [Mixed] args
+  # @return [String]
   #
   def spinner_helper(*args, &block)
     Spinner.new(self, *args, &block)

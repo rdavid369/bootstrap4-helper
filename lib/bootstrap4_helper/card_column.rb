@@ -1,13 +1,10 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
+  # Creates a Card Column Component.
   #
   #
   class CardColumn < CardGrouping
-    # @description
-    # -
+    # String representation of the object.
+    #
     #
     def to_s
       content_tag :div, id: @id, class: "card-columns #{@class}", data: @data do

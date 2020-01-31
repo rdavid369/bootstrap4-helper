@@ -1,16 +1,15 @@
-# @root
-#
-#
 module Bootstrap4Helper
-  # @description
-  # - Used to build groups of Accordions, that are all synced with each other.
+  # Used to build groups of Accordions, that are all synced with each other.
+  #
   #
   class AccordionGroup < Component
-    # @description
-    # -
+    # Class constructor
     #
     # @param [ActionView] template
-    # @param [NilClass|String|Symbol|Hash] opts
+    # @param [Hash] opts
+    # @option opts [String] :id
+    # @option opts [String] :class
+    # @option opts [Hash]   :data
     # @param [Hash]
     #
     def initialize(template, opts = {}, &block)
@@ -22,8 +21,7 @@ module Bootstrap4Helper
       @content = block || proc { '' }
     end
 
-    # @description
-    # - Used to build a `Accordion` for the `AccordionGroup`.
+    # Used to build a `Accordion` for the `AccordionGroup`.
     #
     # @param [Mixed] args
     # @return [Accordion]
@@ -40,8 +38,7 @@ module Bootstrap4Helper
       Accordion.new(self, *opts, &block)
     end
 
-    # @description
-    # - Used to get the HTML markup of the `AccordionGroup`
+    # Used to get the HTML markup of the `AccordionGroup`
     #
     # @return [String]
     #
