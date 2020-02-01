@@ -1,6 +1,6 @@
 # Bootstrap4Helper
 
-Short description and motivation.
+Simple view helper to help build Bootstrap 4 components in Rails views easier.
 
 ## Usage
 
