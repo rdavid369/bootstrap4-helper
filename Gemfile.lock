@@ -187,6 +187,7 @@ DEPENDENCIES
   rubocop
   solargraph
   sqlite3
+  yard
 
 BUNDLED WITH
    2.1.4
