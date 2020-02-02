@@ -613,3 +613,24 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
+        <%= card_helper do |c| %>
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <%= image_tag 'placeholder.svg', class: 'card-img' %>
+                </div>
+                <div class="col-md-8">
+                    <%= c.body do %>
+                        <%= c.title { "Card title" } %>
+                        <%= c.text { "This is a wider card with supporting text below as a natural lead-in to additional content." } %>
+                        <%= c.text do %>
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+

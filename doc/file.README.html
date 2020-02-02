@@ -59,11 +59,7 @@
 
       <div id="content"><div id='filecontents'><h1>Bootstrap4Helper</h1>
 
-<p>Short description and motivation.</p>
-
-<h2>Usage</h2>
-
-<p>How to use my plugin.</p>
+<p>Simple template helper to build Bootstrap 4 components in Rails views easier.</p>
 
 <h2>Installation</h2>
 
@@ -82,9 +78,500 @@
 <pre class="code bash"><code class="bash">$ gem install bootstrap4_helper
 </code></pre>
 
+<h2>Usage</h2>
+
+<p>All of the helpers will be available inside your views. If you wish to stop that behavior and only include the helpers on the views of your choosing, pass the following to the <code>config</code> object in a intializer:</p>
+
+<p><em>config/initializers/bootstrap4-helper.rb</em></p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="Bootstrap4Helper.html" title="Bootstrap4Helper (module)">Bootstrap4Helper</a></span></span><span class='period'>.</span><span class='id identifier rubyid_config'><span class='object_link'><a href="Bootstrap4Helper.html#config-class_method" title="Bootstrap4Helper.config (method)">config</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_autoload_in_views'>autoload_in_views</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<blockquote>
+<p>Note: Almost all the helpers support attributes for <code>id</code>, <code>class</code> and <code>data</code> HTML attributes.</p>
+</blockquote>
+
+<h3>Accordion:</h3>
+
+<p>For use with a single, collapsible accordion.</p>
+
+<pre class="code erb"><code class="erb">&lt;%= accordion_helper class: &#39;text-white bg-primary&#39; do |a| %&gt;
+    &lt;%= a.header do %&gt;
+        // Some HTML or Ruby
+    &lt;% end %&gt;
+    &lt;%= a.body %&gt;
+        // Some HTML or Ruby
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Accordion Groups:</h3>
+
+<p>Use the group helper when you want to have a group of accordions, where one opens and the previous one closes.</p>
+
+<blockquote>
+<p>Note: The helper will handle all the linking of the elements together. If you do pass an id to the parent Dom Element - accordion_grou_helper id: &#39;some_id&#39;, that id will be used for the linking of the element. But you don&#39;t have to, unless you have a specific need to.</p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= accordion_group_helper do |grp| %&gt;
+    &lt;%= grp.accordion do |a| %&gt;
+        &lt;%= a.header class: &#39;text-white bg-primary&#39; do %&gt;
+            // Some HTML or Ruby
+        &lt;% end %&gt;
+        &lt;%= a.body %&gt;
+            // Some HTML or Ruby
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+
+    &lt;%= grp.accordion do |a| %&gt;
+        &lt;%= a.header class: &#39;text-white bg-danger&#39; do %&gt;
+            // Some HTML or Ruby
+        &lt;% end %&gt;
+        &lt;%= a.body %&gt;
+            // Some HTML or Ruby
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end $&gt;
+</code></pre>
+
+<h3>Alerts</h3>
+
+<p>Alerts use the contextual helper, where you can pass one of the states to the object and it will render the appropriate colors.</p>
+
+<pre class="code erb"><code class="erb">&lt;%= alert_helper :danger, dismissble: true do %&gt;
+    Something went wrong with your model data...
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Badges</h3>
+
+<p>The badge helper will build badges realitively quickly. If you are just passing a String, use the shorter curly brace block syntax. If you plan on building other HTML elements of using other Ruby proceedures, use the do/end method.</p>
+
+<pre class="code erb"><code class="erb">&lt;li&gt;
+   Messages: &lt;%= badge_helper(:primary) { @messages.count } %&gt;
+&lt;/li&gt;
+&lt;li&gt;
+   Notifications: &lt;%= badge_healper { @notifications.count } %&gt;
+&lt;/li&gt;
+&lt;li&gt;
+    Users: &lt;%= badge_helper :danger do %&gt;Some HTML / Ruby &lt;% end %&gt;
+&lt;/li&gt;
+</code></pre>
+
+<h3>Cards</h3>
+
+<p>Cards support a few methods that make building them easier:</p>
+
+<ul>
+<li><code>body</code></li>
+<li><code>header</code></li>
+<li><code>footer</code></li>
+<li><code>image_overlay</code></li>
+<li><code>text</code></li>
+<li><code>title</code></li>
+</ul>
+
+<p>For usage on various card sub components, @see <a href="https://getbootstrap.com/docs/4.0/components/card/">https://getbootstrap.com/docs/4.0/components/card/</a></p>
+
+<pre class="code erb"><code class="erb">&lt;%# Regular %&gt;
+
+&lt;%= card_helper do |c| %&gt;
+    &lt;%= c.header class: &#39;text-white bg-primary&#39; do %&gt;
+        &lt;h4&gt;This is the header...&lt;/h4&gt;
+    &lt;% end %&gt;
+    &lt;%= c.body do %&gt;
+        &lt;%= c.title { &#39;This is the title&#39; } %&gt;
+        &lt;%= c.text { &#39;This card body&#39; } %&gt;
+        &lt;ul&gt;
+            &lt;% [1, 2, 3].each do |x|  %&gt;
+                &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+            &lt;% end %&gt;
+        &lt;/ul&gt;
+    &lt;% end %&gt;
+    &lt;%= c.footer do %&gt;
+        This is the footer...
+    &lt;% end %&gt;
+&lt;% end %&gt;
+
+&lt;%# Horizontal %&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm mt-3 mb-3&quot;&gt;
+        &lt;%= card_helper do |c| %&gt;
+            &lt;div class=&quot;row no-gutters&quot;&gt;
+                &lt;div class=&quot;col-md-4&quot;&gt;
+                    &lt;%= image_tag &#39;placeholder.svg&#39;, class: &#39;card-img&#39; %&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-8&quot;&gt;
+                    &lt;%= c.body do %&gt;
+                        &lt;%= c.title { &quot;Card title&quot; } %&gt;
+                        &lt;%= c.text { &quot;This is a wider card with supporting text below as a natural lead-in to additional content.&quot; } %&gt;
+                        &lt;%= c.text do %&gt;
+                            &lt;small class=&quot;text-muted&quot;&gt;Last updated 3 mins ago&lt;/small&gt;
+                        &lt;% end %&gt;
+                    &lt;% end %&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;% end %&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Card Groups</h3>
+
+<p>Card Groups are a group of cards.</p>
+
+<blockquote>
+<p>Use card groups to render cards as a single, attached element with equal width and height columns. Card groups use display: flex; to achieve their uniform sizing. - Bootstrap Docs</p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= card_group_helper do |group| %&gt;
+    &lt;%= group.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title one&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3, 4, 5, 6, 7].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= group.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title two&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= group.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title three&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Card Decks</h3>
+
+<p>Card Decks are for, well, decks of cards :D</p>
+
+<blockquote>
+<p>Need a set of equal width and height cards that aren’t attached to one another? Use card decks. - Bootstrap 4 Docs</p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= card_deck_helper do |deck| %&gt;
+    &lt;%= deck.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title one&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3, 4, 5, 6, 7].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= deck.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title two&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= deck.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title three&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Card Columns</h3>
+
+<p>Build Card Columns.</p>
+
+<blockquote>
+<p>Cards are built with CSS column properties instead of flexbox for easier alignment. Cards are ordered from top to bottom and left to right.</p>
+
+<p>Heads up! Your mileage with card columns may vary. To prevent cards breaking across columns, we must set them to display: inline-block as column-break-inside: avoid isn’t a bulletproof solution yet. <br>- Bootstrap Docs</p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= card_column_helper do |column| %&gt;
+    &lt;%= column.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title one&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3, 4, 5, 6, 7].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= column.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title two&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+    &lt;%= column.card do |c| %&gt;
+        &lt;%= c.body do %&gt;
+            &lt;%= c.title { &#39;This is the title three&#39; } %&gt;
+            &lt;%= c.text { &#39;This card body&#39; } %&gt;
+            &lt;ul&gt;
+                &lt;% [1, 2, 3].each do |x|  %&gt;
+                    &lt;li&gt;Item: &lt;%= x %&gt;&lt;/li&gt;
+                &lt;% end %&gt;
+            &lt;/ul&gt;
+        &lt;% end %&gt;
+        &lt;%= c.footer do %&gt;
+            This is the footer...
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Dropdowns</h3>
+
+<p>Generates a Dropdown component. Default type <code>:dropdown</code>. For inline buttons, use <code>:group</code>.</p>
+
+<p>Dropdowns support the following methods:</p>
+
+<ul>
+<li><code>button</code></li>
+<li><code>menu</code>
+
+<ul>
+<li><code>item</code> - Use this method when you are using the item in the menu as trigger for tab content.</li>
+<li><code>link</code> - Use this method when the item in the menu is nothing more than a hyperlink.</li>
+<li><code>text</code> - simple text</li>
+<li><code>header</code> - Is a header item</li>
+<li><code>divider</code> - A dividing element</li>
+</ul></li>
+</ul>
+
+<pre class="code erb"><code class="erb">&lt;%= dropdown_helper do |dropdown| %&gt;
+    &lt;%= dropdown.button(:primary) { &quot;Action&quot; } %&gt;
+    &lt;%= dropdown.menu do |menu| %&gt;
+        &lt;%= menu.link &#39;Edit&#39;, &#39;#&#39; %&gt;
+        &lt;%= menu.link &#39;Delete&#39;, &#39;#&#39; %&gt;
+        &lt;%= menu.text &#39;Static text&#39; %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+
+&lt;%= dropdown_helper :group, class: &#39;dropright&#39; do |dropdown| %&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Action 2&lt;/button&gt;
+    &lt;%= dropdown.button(:danger, split: true) %&gt;
+    &lt;%= dropdown.menu do |menu| %&gt;
+        &lt;%= menu.header &quot;Crud operations&quot; %&gt;
+        &lt;%= menu.divider %&gt;
+        &lt;%= menu.link &#39;Edit&#39;, &#39;SOME-URL&#39; %&gt;
+        &lt;%= menu.link &#39;Delete&#39;, &#39;SOME-URL&#39; %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+
+&lt;%= dropdown_helper do |dropdown| %&gt;
+    &lt;%= dropdown.button :primary do %&gt;
+        &lt;i class=&quot;fas fa-users&quot;&gt;&lt;/i&gt; User
+    &lt;% end %&gt;
+    &lt;%= dropdown.menu do |menu| %&gt;
+        &lt;form class=&quot;px-4 py-3&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;exampleDropdownFormEmail1&quot;&gt;Email address&lt;/label&gt;
+                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;exampleDropdownFormEmail1&quot; placeholder=&quot;email@example.com&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;exampleDropdownFormPassword1&quot;&gt;Password&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleDropdownFormPassword1&quot; placeholder=&quot;Password&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class=&quot;form-check&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;dropdownCheck&quot;&gt;
+                    &lt;label class=&quot;form-check-label&quot; for=&quot;dropdownCheck&quot;&gt;
+                        Remember me
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Sign in&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;%= menu.divider %&gt;
+        &lt;%= menu.link &quot;New around here? Sign up&quot;, &quot;#&quot; %&gt;
+        &lt;%= menu.link &quot;Forgot password&quot;, &quot;#&quot; %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Modals</h3>
+
+<p>Builds a modal window.</p>
+
+<blockquote>
+<p>Note: When the <code>close_button</code> is not passed a block, it will default to the X icon.</p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= modal_helper id: &#39;exampleModal&#39; do |m| %&gt;
+    &lt;%= m.header do %&gt;
+        &lt;%= m.title { &#39;Example Modal&#39; } %&gt;
+        &lt;%= m.close_button %&gt;
+    &lt;% end %&gt;
+    &lt;%= m.body do %&gt;
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nisi tempora, eius iste sit nobis
+        earum in harum optio dolore explicabo. Eveniet reprehenderit harum itaque ad fuga beatae, quasi
+        sequi! Laborum ea porro nihil ipsam repudiandae vel harum voluptates minima corrupti unde quas,
+        dolore possimus doloribus voluptatem sint fuga dolores odio dignissimos at molestias earum.
+    &lt;% end %&gt;
+    &lt;%= m.footer do %&gt;
+        &lt;%= m.close_button class: &#39;btn btn-secondary&#39; do %&gt;
+            Close
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Navs</h3>
+
+<p>For building nav components. The Nav compoent has the following methods:</p>
+
+<ul>
+<li><code>dropwdown</code> - @see Dropdown for list of methods</li>
+<li><code>item</code></li>
+<li><code>link</code></li>
+</ul>
+
+<pre class="code erb"><code class="erb">&lt;%= nav_helper do |nav| %&gt;
+    &lt;%= nav.link &quot;Item 1&quot;, &quot;https://www.google.com&quot; %&gt;
+    &lt;%= nav.link &quot;Item 2&quot;, &quot;#&quot; %&gt;
+    &lt;%= nav.link &quot;Item 3&quot;, &quot;#&quot; %&gt;
+    &lt;%= nav.dropdown :more do |menu| %&gt;
+        &lt;%= menu.link &#39;People&#39;, &#39;#&#39; %&gt;
+        &lt;%= menu.link &#39;Records&#39;, &#39;#&#39; %&gt;
+    &lt;% end %&gt;
+
+    &lt;%= nav.dropdown &quot;More 2&quot; do |menu| %&gt;
+        &lt;%= menu.link &#39;People&#39;, &#39;#&#39; %&gt;
+        &lt;%= menu.link &#39;Records&#39;, &#39;#&#39; %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Tabs</h3>
+
+<p>For building Tab components.</p>
+
+<blockquote>
+<p>Note: The tab helper responds to the <code>type:</code> and there are two types, <code>:tabs</code> and <code>:pills</code>. The default is <code>:tabs</code>.</p>
+
+<p>Example:
+<code>&lt;%= tab_helper type: :pills do |tab| %&gt;</code></p>
+</blockquote>
+
+<pre class="code erb"><code class="erb">&lt;%= tab_helper do |tab| %&gt;
+    &lt;%= tab.nav do |nav| %&gt;
+        &lt;%= nav.item :item1 do %&gt;
+            Item 1
+        &lt;% end %&gt;
+        &lt;%= nav.item(:item2, class: &#39;active&#39;) { &quot;Item 2&quot; } %&gt;
+        &lt;%= nav.item(:item3) { &quot;Item 3&quot; } %&gt;
+        &lt;%= nav.item :item4 %&gt;
+        &lt;%= nav.dropdown &#39;More&#39; do |dropdown| %&gt;
+            &lt;%= dropdown.item :item5 %&gt;
+            &lt;%= dropdown.item(:item6) { &#39;Item 6&#39; } %&gt;
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+
+    &lt;%= tab.content do |content| %&gt;
+        &lt;%= content.pane :item1, class: &#39;mt-3&#39; do %&gt;
+            Content 1
+        &lt;% end %&gt;
+
+        &lt;%= content.pane :item2, class: &#39;active mt-3&#39; do %&gt;
+            Content 2
+        &lt;% end %&gt;
+
+        &lt;%= content.pane :item3, class: &#39;mt-3&#39; do %&gt;
+            Content 3
+        &lt;% end %&gt;
+
+        &lt;%= content.pane :item4, class: &#39;mt-3&#39; do %&gt;
+            Content 4
+        &lt;% end %&gt;
+
+        &lt;%= content.pane :item5, class: &#39;mt-3&#39; do %&gt;
+            Content 5
+        &lt;% end %&gt;
+
+        &lt;%= content.pane :item6, class: &#39;mt-3&#39; do %&gt;
+            Content 6
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<h3>Spinners</h3>
+
+<p>Creates CSS spinner components. Supports two types: <code>:border</code> and <code>:grow</code>. Teh default is <code>:border</code></p>
+
+<pre class="code erb"><code class="erb">&lt;%= spinner_helper class: &#39;text-warning&#39; %&gt;
+&lt;%= spinner_helper type: :grow, class: &#39;text-danger&#39;, id: &#39;loadingRecords&#39; %&gt;
+</code></pre>
+
 <h2>Contributing</h2>
 
-<p>Contribution directions go here.</p>
+<p>If you would like to contribution, by all means, do a PR and send up your suggestions.</p>
+
+<p>If there are components you would like to see added, open an issue and I will try to get to them, or you can do a PR and add them yourself :D</p>
 
 <h2>License</h2>
 
@@ -92,9 +579,9 @@
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jan 31 13:25:34 2020 by
+  Generated on Sat Feb  1 22:15:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.0).
+  0.9.24 (ruby-2.5.3).
 </div>
 
     </div>
