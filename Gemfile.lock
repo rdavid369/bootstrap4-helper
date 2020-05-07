@@ -88,7 +88,11 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     nio4r (2.5.2)
+<<<<<<< HEAD
     nokogiri (1.10.9)
+=======
+    nokogiri (1.10.8)
+>>>>>>> 51a0821720deaf15e12860150a082623a81c2a63
       mini_portile2 (~> 2.4.0)
     parallel (1.19.1)
     parser (2.7.1.2)

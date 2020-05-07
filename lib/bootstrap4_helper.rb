@@ -82,7 +82,7 @@ module Bootstrap4Helper
     Alert.new(self, *args, &block)
   end
 
-  # Creates a badge component.  Bades have a context variable.  Providing nothing
+  # Creates a badge component.  Badges have a context variable.  Providing nothing
   # will give you the `secondary` context.
   #
   # ```erb
