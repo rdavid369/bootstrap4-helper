@@ -24,18 +24,19 @@ module Bootstrap4Helper
       # Builds the pane for the tab.
       #
       # @param [Symbol] source
-      # @param [Hash] opts
+      # @param [Hash]   opts
       # @option opts [String]  :class
       # @option opts [Hash]    :data
       # @return [String]
       #
       def pane(source, opts = {}, &block)
+        id    = opts.fetch(:id,    source)
         klass = opts.fetch(:class, '')
         data  = opts.fetch(:data,  {})
 
         content_tag(
           :div,
-          id:    source,
+          id:    id,
           class: "tab-pane #{klass}",
           role:  'tabpanel',
           data:  data,

@@ -577,10 +577,10 @@
                 <% end %>
                 <%= nav.item(:item2, class: 'active') { "Item 2" } %>
                 <%= nav.item(:item3) { "Item 3" } %>
-                <%= nav.item :item4 %>
+                <%= nav.item(:item_4) { "Item 4" } %>
                 <%= nav.dropdown 'More' do |dropdown| %>
                     <%= dropdown.item :item5 %>
-                    <%= dropdown.item(:item6) { 'Item 6' } %>
+                    <%= dropdown.item(:item_6) { 'Item 6' } %>
                 <% end %>
             <% end %>
 
@@ -597,7 +597,7 @@
                     Content 3
                 <% end %>
 
-                <%= content.pane :item4, class: 'mt-3' do %>
+                <%= content.pane :item4, id: 'item_4', class: 'mt-3' do %>
                     Content 4
                 <% end %>
 
@@ -605,7 +605,7 @@
                     Content 5
                 <% end %>
 
-                <%= content.pane :item6, class: 'mt-3' do %>
+                <%= content.pane :item6, id: 'item_6', class: 'mt-3' do %>
                     Content 6
                 <% end %>
             <% end %>
