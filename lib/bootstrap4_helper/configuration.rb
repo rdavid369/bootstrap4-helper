@@ -9,7 +9,8 @@ module Bootstrap4Helper
       card_title:        :h5,
       card_text:         :p,
       accordion_header:  :h5,
-      badge:             :span
+      badge:             :span,
+      page_header:       :h1
     }.freeze
 
     attr_accessor(*DEFAULT_SETTINGS.keys)

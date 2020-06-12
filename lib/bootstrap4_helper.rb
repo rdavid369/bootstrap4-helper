@@ -448,6 +448,15 @@ module Bootstrap4Helper
     Nav.new(self, opts, &block)
   end
 
+  # Generates a page header, similiar to bootstrap 3
+  #
+  # @param  [Hash] opts
+  # @return [String]
+  #
+  def page_header_helper(opts = {}, &block)
+    PageHeader.new(self, opts, &block)
+  end
+
   # Generates a Tab component.
   #
   # ```erb

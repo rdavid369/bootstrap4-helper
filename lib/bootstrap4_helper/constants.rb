@@ -19,6 +19,7 @@ module Bootstrap4Helper
       dropdown/menu
       modal
       nav
+      page_header
       spinner
       tab
       tab/content
