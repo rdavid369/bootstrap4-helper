@@ -7,6 +7,7 @@ module Bootstrap4Helper
       title
       text
       image_overlay
+      footer
     ].freeze
 
     # Class constructor
