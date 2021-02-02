@@ -298,7 +298,7 @@
 
 <div class="row">
     <div class="col-sm mt-3 mb-3">
-        <%= accordion_helper do |a| %>
+        <%= accordion_helper id: 'my_custom_id', data: { target: 'my_collapse_id' }, expanded: true do |a| %>
             <%= a.header do %>
                 This is the Accordion Header
             <% end %>

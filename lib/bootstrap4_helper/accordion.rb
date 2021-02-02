@@ -23,13 +23,14 @@ module Bootstrap4Helper
     def initialize(template, opts = {}, &block)
       super(template)
 
-      @id      = opts.fetch(:id,      uuid)
-      @class   = opts.fetch(:class,   '')
-      @data    = opts.fetch(:data,    {})
-      @parent  = opts.fetch(:parent,  nil)
-      @target  = @data.fetch(:target, uuid)
-      @content = block || proc { '' }
-      @card    = Card.new(@template)
+      @id       = opts.fetch(:id,      uuid)
+      @class    = opts.fetch(:class,   '')
+      @data     = opts.fetch(:data,    {})
+      @parent   = opts.fetch(:parent,  nil)
+      @target   = @data.fetch(:target, uuid)
+      @expanded = opts.fetch(:expanded, false)
+      @content  = block || proc { '' }
+      @card     = Card.new(@template)
     end
 
     # Builds a header component for the accordion, which is actually the header
@@ -61,8 +62,9 @@ module Bootstrap4Helper
     #
     def body(opts = {}, &block)
       data = { parent: "##{@parent}" } if @parent.present?
-
-      content_tag :div, id: @target, class: 'collapse', data: data do
+      css_class = 'collapse'
+      css_class += ' show' if @expanded
+      content_tag :div, id: @target, class: css_class, data: data do
         @card.body(opts, &block)
       end
     end
@@ -95,7 +97,7 @@ module Bootstrap4Helper
     # @return [String]
     #
     def to_s
-      content_tag :div, class: "card #{@class}", data: @data do
+      content_tag :div, id: @id, class: "card #{@class}", data: @data do
         @content.call(self)
       end
     end
