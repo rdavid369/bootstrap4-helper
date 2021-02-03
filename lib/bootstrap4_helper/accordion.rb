@@ -11,25 +11,25 @@ module Bootstrap4Helper
     ].freeze
 
     # Class constructor
-    # -
     #
     # @param [ActionView] template
     # @param [Hash] opts
-    # @option opts [String] :id
-    # @option opts [String] :class
-    # @option opts [Hash]   :data
-    # @option opts [String] :parent
-    # @option opts [String] :target
+    # @option opts [String]  :id
+    # @option opts [String]  :class
+    # @option opts [Hash]    :data
+    # @option opts [String]  :parent
+    # @option opts [String]  :target
+    # @option opts [Boolean] :expanded
     #
     def initialize(template, opts = {}, &block)
       super(template)
 
-      @id       = opts.fetch(:id,      uuid)
-      @class    = opts.fetch(:class,   '')
-      @data     = opts.fetch(:data,    {})
-      @parent   = opts.fetch(:parent,  nil)
-      @target   = @data.fetch(:target, uuid)
+      @id       = opts.fetch(:id,       uuid)
+      @class    = opts.fetch(:class,    '')
+      @data     = opts.fetch(:data,     {})
+      @parent   = opts.fetch(:parent,   nil)
       @expanded = opts.fetch(:expanded, false)
+      @target   = @data.fetch(:target,  uuid)
       @content  = block || proc { '' }
       @card     = Card.new(@template)
     end
@@ -62,10 +62,11 @@ module Bootstrap4Helper
     # @return [String]
     #
     def body(opts = {}, &block)
-      data = { parent: "##{@parent}" } if @parent.present?
-      css_class = 'collapse'
-      css_class += ' show' if @expanded
-      content_tag :div, id: @target, class: css_class, data: data do
+      data  = { parent: "##{@parent}" } if @parent.present?
+      klass = 'collapse'
+      klass += ' show' if @expanded
+
+      content_tag :div, id: @target, class: klass, data: data do
         @card.body(opts, &block)
       end
     end
@@ -85,7 +86,7 @@ module Bootstrap4Helper
       end
     end
 
-    # Checks if the Object reponds to missing. 
+    # Checks if the Object reponds to missing.
     #
     #
     def respond_to_missing?(method, include_private = false)
@@ -98,7 +99,7 @@ module Bootstrap4Helper
     # @return [String]
     #
     def to_s
-      content_tag :div, id: @id, class: "card #{@class}", data: @data do
+      content_tag :div, id: @id, class: "card #{@class}", data: @data.except(:target) do
         @content.call(self)
       end
     end
