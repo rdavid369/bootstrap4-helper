@@ -12,6 +12,7 @@ module Bootstrap4Helper
     # @option opts [Hash]    :data
     # @option opts [Boolean] :scrollable
     # @option opts [Boolean] :vcentered
+    # @option opts [Symbol]  :size
     #
     def initialize(template, opts = {}, &block)
       super(template)
@@ -21,6 +22,7 @@ module Bootstrap4Helper
       @data       = opts.fetch(:data,       {})
       @scrollable = opts.fetch(:scrollable, false)
       @vcentered  = opts.fetch(:vcentered,  false)
+      @large      = opts.fetch(:size,       nil)
       @content    = block || proc { '' }
     end
 
@@ -83,10 +85,10 @@ module Bootstrap4Helper
 
       content_tag(
         :button,
-        type:  'button',
+        type: 'button',
         class: block_given? ? klass : 'close',
-        data:  { dismiss: 'modal' },
-        aria:  { label: 'Close' }
+        data: { dismiss: 'modal' },
+        aria: { label: 'Close' }
       ) do
         block_given? ? yield : xbutton
       end
@@ -98,7 +100,7 @@ module Bootstrap4Helper
     #
     def to_s
       content_tag :div, id: @id, class: "modal #{@class}", tabindex: -1, role: 'dialog', data: @data do
-        content_tag :div, class: "modal-dialog #{scrollable} #{vcentered}", role: 'document' do
+        content_tag :div, class: "modal-dialog #{size} #{scrollable} #{vcentered}", role: 'document' do
           content_tag(:div, class: 'modal-content') { @content.call(self) }
         end
       end
@@ -133,9 +135,9 @@ module Bootstrap4Helper
 
       content_tag(
         tag,
-        id:    id,
+        id: id,
         class: "modal-#{type} #{klass}",
-        data:  data,
+        data: data,
         &block
       )
     end
@@ -162,6 +164,21 @@ module Bootstrap4Helper
     #
     def vcentered
       @vcentered ? 'modal-dialog-centered' : ''
+    end
+
+    # Gets the size of the modal window.
+    #
+    # @return [String]
+    #
+    def size
+      case @size
+      when :large
+        'modal-lg'
+      when :small
+        'modal-sm'
+      else
+        ''
+      end
     end
   end
 end
