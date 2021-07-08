@@ -1,0 +1,23 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 110
+
+Metrics/MethodLength:
+  Max: 15
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+# rubocop -a should not be allowed to make changes that break any code,
+# regardless of how poorly written
+
+# automatically removes double negation,
+# which breaks code that uses that idiom to convert regex matches to booleans
+# e.g.  !!(str =~ /something/)
+DoubleNegation:
+  Description: "Checks for uses of double negation (!!)."
+  Enabled: true
+  AutoCorrect: false

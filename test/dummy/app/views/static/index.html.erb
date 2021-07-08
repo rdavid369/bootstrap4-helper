@@ -1,4 +1,4 @@
-<%= page_header_helper class: 'mt-5' do %>
+<%= page_header_helper type: :h2, class: 'mt-5' do %>
     Test Application
 <% end %>
 
@@ -369,7 +369,7 @@
             Launch demo modal 3
         </button>
 
-        <%= modal_helper id: 'exampleModal' do |m| %>
+        <%= modal_helper id: 'exampleModal', size: :xlarge do |m| %>
             <%= m.header do %>
                 <%= m.title { 'Example Modal' } %>
                 <%= m.close_button %>
