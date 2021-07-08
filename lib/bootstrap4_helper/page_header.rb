@@ -7,6 +7,7 @@ module Bootstrap4Helper
     #
     # @param [ActionView] template
     # @param [Hash] opts
+    # @option opts [symbol]  :type
     # @option opts [String]  :id
     # @option opts [String]  :class
     # @option opts [Hash]    :data
@@ -14,6 +15,7 @@ module Bootstrap4Helper
     def initialize(template, opts = {}, &block)
       super(template)
 
+      @type    = opts.fetch(:type,  nil)
       @id      = opts.fetch(:id,    uuid)
       @class   = opts.fetch(:class, '')
       @data    = opts.fetch(:data,  {})
@@ -26,10 +28,10 @@ module Bootstrap4Helper
     #
     def to_s
       content_tag(
-        config(:page_header, :h1),
-        id:    @id,
+        @type || config(:page_header, :h1),
+        id: @id,
         class: "pb-2 mt-4 mb-2 border-bottom #{@class}",
-        data:  @data
+        data: @data
       ) do
         @content.call(self)
       end

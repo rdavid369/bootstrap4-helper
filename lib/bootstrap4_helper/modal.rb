@@ -22,7 +22,7 @@ module Bootstrap4Helper
       @data       = opts.fetch(:data,       {})
       @scrollable = opts.fetch(:scrollable, false)
       @vcentered  = opts.fetch(:vcentered,  false)
-      @large      = opts.fetch(:size,       nil)
+      @size       = opts.fetch(:size,       nil)
       @content    = block || proc { '' }
     end
 
@@ -172,6 +172,8 @@ module Bootstrap4Helper
     #
     def size
       case @size
+      when :xlarge
+        'modal-xl'
       when :large
         'modal-lg'
       when :small
