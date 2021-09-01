@@ -17,6 +17,7 @@ module Bootstrap4Helper
       configuration
       dropdown
       dropdown/menu
+      input_group
       modal
       nav
       page_header

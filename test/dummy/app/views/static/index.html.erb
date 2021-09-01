@@ -12,6 +12,27 @@
 
 <div class="row">
     <div class="col-sm mt-3 mb-3">
+        <div class="form-group">
+            <%= input_group_helper :append do |ig| %>
+                <input type="text" value="" name="email" placeholder="Email" class="form-control" />
+                <%= ig.text do %>
+                    @gmail.com
+                <% end %>
+            <% end %>
+        </div>
+        <div class="form-group">
+            <%= input_group_helper(:prepend, id: 'some_id', data: { 'test-attribute' => 1 }) do |ig| %>
+                <%= ig.text(class: 'some-color') { '<i class="fas fa-at"></i>'.html_safe } %>
+                <input type="text" value="" name="email" placeholder="Your email address" class="form-control" />
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3">
         <%= alert_helper :primary do %>
             This is the standard alert....
         <% end %>

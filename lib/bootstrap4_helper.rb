@@ -457,6 +457,30 @@ module Bootstrap4Helper
     PageHeader.new(self, opts, &block)
   end
 
+  # Generates a input group component.
+  #
+  # ```erb
+  #  <%= input_group_helper do |ig| %>
+  #    <%= ig.text do %>
+  #      <i class="fas fa-at"></i>
+  #    <% end %>
+  #    <input type="text" value="" name="email" placeholder="Email" class="form-control" />
+  #  <% end %>
+  #
+  #  <%= input_group_helper :append do |ig| %>
+  #    <input type="text" value="" name="email" placeholder="Email" class="form-control" />
+  #    <%= ig.text { "@" } %>
+  #  <% end %>
+  # ```
+  #
+  # @param  [Symbol] type
+  # @param  [Hash] opts
+  # @return [String]
+  #
+  def input_group_helper(type = :prepend, opts = {}, &block)
+    InputGroup.new(self, type, opts, &block)
+  end
+
   # Generates a Tab component.
   #
   # ```erb
