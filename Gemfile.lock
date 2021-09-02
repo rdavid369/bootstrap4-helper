@@ -96,6 +96,7 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
+    pg (1.2.3)
     popper_js (1.16.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -174,7 +175,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -194,11 +194,11 @@ DEPENDENCIES
   bootstrap4_helper!
   font-awesome-sass
   jquery-rails
+  pg
   rails (~> 5.2)
   redcarpet
   rubocop
   solargraph
-  sqlite3
 
 BUNDLED WITH
-   2.2.8
+   2.2.26

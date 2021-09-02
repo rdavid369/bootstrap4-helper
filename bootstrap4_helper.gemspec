@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'redcarpet'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'solargraph'
-  spec.add_development_dependency 'sqlite3'
+  spec.add_development_dependency 'pg'
 end
